@@ -757,3 +757,462 @@ PATIENT RESPONSE
 CONTINUOUS RE-ESTIMATION
 
 The proposed research should test whether this architecture provides measurable advantages over fixed or non-personalised rehabilitation approaches.
+# 4A. 2024–2026 RESEARCH GAP MATRIX
+
+## Purpose
+
+This matrix maps the current research landscape against the proposed research concept. It should be used by any LLM assisting with literature review, research-gap identification, paper writing, methodology design, novelty positioning or grant development.
+
+**Important:** The matrix is a strategic synthesis of the 2024–September 2026 literature, not a claim that every paper in the field has been exhaustively catalogued. Before publication, individual claims and novelty statements must be verified against the final systematic literature set.
+
+---
+
+## A. Technology / Intervention Gap Matrix
+
+| Research Dimension                 | Current State 2024–26                  | Maturity    | What Existing Studies Commonly Do                           | Remaining Gap                                                            | Relevance to Proposed Research |
+| ---------------------------------- | -------------------------------------- | ----------- | ----------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------ |
+| VR rehabilitation                  | Extensive literature                   | High        | Use immersive/non-immersive VR for rehabilitation exercises | VR increasingly needs to become intelligent rather than merely immersive | Medium                         |
+| Gamified rehabilitation            | Extensive literature                   | High        | Points, levels, rewards, avatars, games                     | Gamification is often generic/static rather than patient-state driven    | **High**                       |
+| AI movement analysis               | Rapidly growing                        | Medium–High | Pose estimation, classification, movement scoring           | Need multimodal longitudinal patient-state modelling                     | **High**                       |
+| AI rehabilitation feedback         | Growing                                | Medium      | Automated feedback on exercise performance                  | Feedback often focuses on immediate motor performance                    | High                           |
+| Adaptive difficulty                | Increasing rapidly                     | Medium–High | Modify task difficulty based on performance                 | Performance-only adaptation is insufficient                              | **High**                       |
+| Closed-loop rehabilitation         | Emerging                               | Medium      | Sense → analyse → adapt → repeat                            | Need richer patient-state representation                                 | **High**                       |
+| Behavioural analytics              | Less mature                            | Low–Medium  | Session duration, adherence, interaction metrics            | Behavioural state is under-integrated with motor state                   | **Very High**                  |
+| Personalised gamification          | Emerging                               | Low–Medium  | Limited user-specific adaptation                            | Need adaptation of game mechanics to behavioural/motivational state      | **Very High**                  |
+| Multimodal patient-state modelling | Emerging                               | Low–Medium  | Separate motor/behaviour measures                           | Joint functional + behavioural state remains underdeveloped              | **Very High**                  |
+| Explainable adaptation             | Emerging                               | Low–Medium  | System changes difficulty with limited rationale            | Need interpretable reasons for adaptation                                | **High**                       |
+| Therapist-in-the-loop AI           | Emerging                               | Medium      | AI assists assessment/recommendation                        | Need robust clinician-facing adaptation workflow                         | High                           |
+| Longitudinal personalisation       | Emerging                               | Low–Medium  | Session-level adaptation                                    | Need modelling of changing patient state across sessions                 | **Very High**                  |
+| Clinical validation                | Limited relative to technical research | Low–Medium  | Small pilot studies dominate                                | Need larger, controlled and longitudinal validation                      | **Very High**                  |
+
+---
+
+# B. Functional + Behavioural Intelligence Gap Matrix
+
+This is the most important matrix for the proposed research.
+
+| Patient Information            | Typical Existing Approach            | Limitation                                                 | Proposed Direction                                   |
+| ------------------------------ | ------------------------------------ | ---------------------------------------------------------- | ---------------------------------------------------- |
+| Movement accuracy              | Used frequently                      | Gives task performance but limited context                 | Combine with behavioural state                       |
+| Movement speed                 | Frequently measured                  | Can be affected by fatigue, confidence and task difficulty | Interpret longitudinally                             |
+| Trajectory                     | Increasingly used                    | Primarily motor interpretation                             | Combine with task behaviour                          |
+| Reaction time                  | Common metric                        | May represent motor/cognitive factors                      | Multimodal interpretation                            |
+| Errors                         | Common                               | Usually treated as failure count                           | Analyse error-recovery behaviour                     |
+| Repetitions                    | Common                               | Usually prescribed by protocol                             | Distinguish prescribed vs voluntary repetition       |
+| Hesitation                     | Less frequently modelled             | Potentially ambiguous                                      | Candidate behavioural indicator requiring validation |
+| Retry behaviour                | Underused                            | Can indicate persistence or difficulty                     | Behavioural feature                                  |
+| Task abandonment               | Underused                            | Potential engagement signal                                | Behavioural/engagement feature                       |
+| Difficulty selection           | Underused                            | Reveals self-perceived challenge                           | Personalisation signal                               |
+| Voluntary challenge acceptance | Underused                            | Potential motivational signal                              | Gamification adaptation signal                       |
+| Session consistency            | Increasingly relevant                | Often analysed descriptively                               | Longitudinal behavioural modelling                   |
+| Engagement                     | Often self-reported                  | Subjective and intermittent                                | Combine behavioural + self-report measures           |
+| Motivation                     | Often questionnaire-based            | Difficult to measure continuously                          | Infer candidate indicators, then validate            |
+| Fatigue                        | Usually external/clinical assessment | Difficult to continuously observe                          | Explore multimodal proxies without overclaiming      |
+| Frustration                    | Often self-reported                  | Sparse continuous data                                     | Explore interaction signatures cautiously            |
+| Patient recovery trajectory    | Usually clinical scale based         | Low temporal resolution                                    | Combine clinical measures with digital trajectory    |
+
+---
+
+# C. Adaptation Gap Matrix
+
+| Adaptation Type           | Existing Research      | Main Limitation                            | Proposed Research Opportunity                     |
+| ------------------------- | ---------------------- | ------------------------------------------ | ------------------------------------------------- |
+| Difficulty adaptation     | Relatively established | Usually based on performance thresholds    | Multimodal state-based adaptation                 |
+| Exercise selection        | Emerging               | Often therapist/rule based                 | AI-assisted exercise recommendation               |
+| Repetition adaptation     | Emerging               | Frequently rule based                      | State-aware repetition adjustment                 |
+| Feedback adaptation       | Emerging               | Limited personalisation                    | Adapt feedback according to behaviour/performance |
+| Reward adaptation         | Limited                | Usually fixed                              | Behaviour-aware reward strategy                   |
+| Game mechanics adaptation | Limited                | Usually static                             | **Personalised gamification**                     |
+| Challenge adaptation      | Emerging               | Primarily motor performance                | Functional + behavioural challenge model          |
+| Session progression       | Emerging               | Often predetermined                        | Longitudinal patient-state driven progression     |
+| Therapist recommendation  | Emerging               | Limited explainability                     | Explainable AI recommendation                     |
+| Real-time adaptation      | Increasing             | Technical rather than clinically validated | Validate meaningful patient-state adaptation      |
+
+---
+
+# D. Gamification Gap Matrix
+
+| Gamification Component             | Current Practice | Research Gap                                                |
+| ---------------------------------- | ---------------- | ----------------------------------------------------------- |
+| Points                             | Common           | Mostly static reward structure                              |
+| Badges                             | Common           | Limited evidence for individualised badge/reward strategies |
+| Levels                             | Common           | Usually predetermined progression                           |
+| Leaderboards                       | Used selectively | May not suit all rehabilitation populations                 |
+| Avatars                            | Common           | Often cosmetic rather than adaptive                         |
+| Goals                              | Common           | Usually therapist/preset defined                            |
+| Rewards                            | Common           | Limited behavioural personalisation                         |
+| Challenge                          | Common           | Difficulty often tied only to motor performance             |
+| Narrative                          | Increasing       | Limited evidence for adaptive narratives                    |
+| Competition                        | Limited          | Patient suitability needs investigation                     |
+| Cooperation                        | Limited          | Opportunity for socially adaptive rehabilitation            |
+| Dynamic gamification               | Emerging         | **Major opportunity**                                       |
+| Behaviour-aware gamification       | Limited          | **Major gap**                                               |
+| Recovery-stage-aware gamification  | Limited          | **Major gap**                                               |
+| Cognitive-state-aware gamification | Limited          | **Major gap**                                               |
+| Motivation-aware gamification      | Limited          | **Major gap**                                               |
+
+---
+
+# E. AI Method Gap Matrix
+
+| AI Approach             | Current Use                        | Opportunity                                 | Caution                                          |
+| ----------------------- | ---------------------------------- | ------------------------------------------- | ------------------------------------------------ |
+| Computer Vision         | Pose/movement tracking             | Markerless rehabilitation assessment        | Camera/environment variability                   |
+| Random Forest / XGBoost | Classification/prediction          | Strong baseline for multimodal features     | May not model temporal dynamics optimally        |
+| Deep Learning           | Movement classification/prediction | Complex temporal patterns                   | Requires adequate data                           |
+| LSTM/GRU                | Sequential rehabilitation data     | Longitudinal state modelling                | Data requirements                                |
+| Transformers            | Temporal multimodal modelling      | Longitudinal multimodal state               | Potential overengineering for small datasets     |
+| Clustering              | Patient profiling                  | Discover behavioural/performance archetypes | Clusters need clinical interpretation            |
+| Anomaly Detection       | Detect performance deviation       | Detect unusual session behaviour            | Anomaly ≠ pathology                              |
+| Contextual Bandits      | Sequential adaptation              | Adaptive challenge/reward selection         | Requires careful reward definition               |
+| Reinforcement Learning  | Adaptive rehabilitation            | Sequential personalised intervention        | Data, safety and explainability challenges       |
+| Explainable AI          | Interpretation                     | Explain adaptation decisions                | Explanations must reflect actual model behaviour |
+| Multimodal Fusion       | Combining sensors                  | Functional + behavioural state              | Sensor synchronisation and missing data          |
+| Federated Learning      | Privacy-preserving learning        | Multi-centre future research                | Infrastructure complexity                        |
+
+---
+
+# F. Clinical Translation Gap Matrix
+
+| Translation Dimension | Current Situation                  | Gap                                              |
+| --------------------- | ---------------------------------- | ------------------------------------------------ |
+| Sample size           | Many studies use small samples     | Larger studies needed                            |
+| Study duration        | Often short                        | Longitudinal evidence needed                     |
+| Control groups        | Inconsistent                       | More controlled comparisons needed               |
+| Clinical scales       | Used variably                      | Standardisation needed                           |
+| Digital metrics       | Increasing                         | Need clinical validation                         |
+| Real-world home use   | Growing                            | Need robustness outside laboratory               |
+| Therapist acceptance  | Understudied                       | Human-AI workflow needs investigation            |
+| Safety                | Often discussed                    | Formal safety constraints needed                 |
+| Explainability        | Limited                            | Clinician-facing explanations needed             |
+| Generalisability      | Often single-site/small population | Multi-site and diverse populations needed        |
+| Personalisation       | Increasing                         | Behaviour-aware personalisation remains immature |
+| Accessibility         | Variable                           | Low-cost and inclusive solutions needed          |
+| Data privacy          | Important                          | Stronger privacy-by-design architectures needed  |
+
+---
+
+# G. Proposed Research vs Existing Research
+
+The following positioning should guide all future literature reviews.
+
+| Existing Research Question                                |           Saturation | Proposed Research Response               |
+| --------------------------------------------------------- | -------------------: | ---------------------------------------- |
+| Can VR support rehabilitation?                            |                 High | Do not use as primary novelty            |
+| Can gamification improve rehabilitation?                  |                 High | Do not use as primary novelty            |
+| Can AI analyse rehabilitation movements?                  |          Medium–High | Use as enabling technology               |
+| Can AI provide rehabilitation feedback?                   |               Medium | Use as subsystem                         |
+| Can AI dynamically adjust difficulty?                     |  Medium–High by 2026 | Not sufficient alone                     |
+| Can VR rehabilitation operate in a closed loop?           | Emerging/established | Not sufficient alone                     |
+| Can behavioural data be collected?                        |               Medium | Investigate richer behavioural modelling |
+| Can behavioural data improve adaptation?                  |       **Low–Medium** | **Core opportunity**                     |
+| Can gamification adapt to patient behaviour?              |              **Low** | **Core opportunity**                     |
+| Can functional + behavioural state be jointly modelled?   |       **Low–Medium** | **Core opportunity**                     |
+| Can adaptation decisions be explainable?                  |           Low–Medium | Strong secondary contribution            |
+| Can longitudinal digital state predict clinical outcomes? |             Emerging | Strong validation pathway                |
+| Can therapists use AI recommendations effectively?        |             Emerging | Strong translational opportunity         |
+
+---
+
+# H. Core Research Gap Statement
+
+The literature indicates that VR rehabilitation, gamification, AI-based movement analysis and adaptive rehabilitation are individually established or rapidly developing research areas.
+
+The more significant unresolved opportunity lies in their **integration around a multimodal and longitudinal patient-state model**.
+
+Specifically:
+
+> Current rehabilitation systems frequently adapt intervention parameters according to observable task performance, while comparatively less mature approaches jointly model functional movement, behavioural interaction and engagement state to personalise both rehabilitation difficulty and gamification.
+
+Therefore, the proposed research should investigate:
+
+> **Whether multimodal functional + behavioural state estimation can support safer, more responsive and more personalised gamified VR neurorehabilitation under therapist supervision.**
+
+This should be treated as a hypothesis requiring empirical validation rather than as an established fact.
+
+---
+
+# I. Novelty Boundary
+
+Any LLM assisting with this project must use the following hierarchy when evaluating novelty:
+
+### Weak novelty
+
+"Uses VR for rehabilitation."
+
+### Weak novelty
+
+"Uses gamification for rehabilitation."
+
+### Moderate novelty
+
+"Uses AI to assess rehabilitation movements."
+
+### Moderate novelty
+
+"Uses AI to dynamically adjust VR difficulty."
+
+### Stronger novelty
+
+"Uses multimodal functional and behavioural information for adaptation."
+
+### Stronger novelty
+
+"Adapts gamification according to behavioural and functional state."
+
+### Stronger novelty
+
+"Maintains a longitudinal patient-state model that changes intervention strategy across sessions."
+
+### Potentially strong integrated contribution
+
+"An explainable, therapist-in-the-loop, behaviour-aware closed-loop system that jointly estimates functional and behavioural state and dynamically adapts both rehabilitation tasks and gamification."
+
+The final novelty claim must be verified against the complete literature review before publication.
+
+---
+
+# J. Priority Research Gaps
+
+The LLM should prioritise the following gaps when generating research questions:
+
+**GAP 1 — Behavioural State**
+
+Behavioural interaction data are comparatively underused as an active component of rehabilitation personalisation.
+
+**GAP 2 — Multimodal State**
+
+Movement and behavioural signals are often analysed separately rather than as a unified patient-state representation.
+
+**GAP 3 — Personalised Gamification**
+
+Gamification mechanisms are commonly static or generic rather than dynamically selected according to patient characteristics and changing behavioural state.
+
+**GAP 4 — Longitudinal Intelligence**
+
+Many systems operate at the exercise/session level rather than maintaining a longitudinal representation of changing patient capability and engagement.
+
+**GAP 5 — Explainability**
+
+AI adaptation decisions frequently lack transparent, clinician-understandable rationales.
+
+**GAP 6 — Clinical Translation**
+
+Technical prototypes substantially outnumber robust clinical validation studies.
+
+**GAP 7 — Human-AI Collaboration**
+
+Therapist-in-the-loop workflows require further development and evaluation.
+
+**GAP 8 — Standardised Digital Measures**
+
+Digital performance and behavioural indicators require validation against established clinical and behavioural measures.
+
+---
+
+# K. Recommended Research Position
+
+The project should be positioned as:
+
+> **Behaviour-Aware Intelligent Closed-Loop Neurorehabilitation**
+
+rather than simply:
+
+> AI + VR rehabilitation.
+
+The central innovation is the **intelligence layer** that transforms continuous rehabilitation interaction data into an evolving patient-state representation and uses that representation to adapt intervention and gamification.
+
+---
+
+# L. Literature Review Search Axes
+
+Future searches should systematically cover these combinations:
+
+1. "AI" AND "VR" AND neurorehabilitation
+2. "machine learning" AND "virtual reality" AND stroke rehabilitation
+3. "adaptive rehabilitation" AND AI
+4. "closed-loop rehabilitation" AND AI
+5. "adaptive virtual reality rehabilitation"
+6. "gamification" AND neurorehabilitation
+7. "personalised gamification" AND rehabilitation
+8. "behavioural analytics" AND rehabilitation
+9. "engagement modelling" AND rehabilitation
+10. "digital biomarkers" AND rehabilitation
+11. "patient state estimation" AND rehabilitation
+12. "multimodal" AND rehabilitation AND AI
+13. "reinforcement learning" AND rehabilitation
+14. "explainable AI" AND rehabilitation
+15. "therapist-in-the-loop" AND AI rehabilitation
+16. "longitudinal" AND digital rehabilitation
+17. "adaptive gamification" AND healthcare
+18. "behaviour-aware" AND rehabilitation
+19. "VR" AND "behavioural analytics" AND rehabilitation
+20. "gamified VR" AND adaptive rehabilitation
+
+Searches should prioritise 2024–2026 publications while retaining seminal earlier studies where necessary.
+
+---
+
+# M. Evidence Hierarchy for Future Paper Writing
+
+When supporting claims, prioritise:
+
+1. Systematic reviews / meta-analyses
+2. Randomised controlled trials
+3. Prospective clinical studies
+4. Validated cohort studies
+5. Scoping reviews
+6. Technical validation studies
+7. Pilot studies
+8. Conference papers
+9. Conceptual frameworks
+
+Technical feasibility should not be presented as clinical efficacy.
+
+---
+
+# N. Red-Flag Claims
+
+The assisting LLM must flag or avoid unsupported claims such as:
+
+* "AI improves neuroplasticity."
+* "Behavioural signals directly measure motivation."
+* "Hesitation indicates fatigue."
+* "The model detects patient frustration."
+* "The system determines the optimal therapy."
+* "The AI replaces therapists."
+* "The system improves recovery."
+
+Unless supported by appropriate experimental/clinical evidence, use:
+
+* "candidate indicator"
+* "proxy"
+* "association"
+* "prediction"
+* "estimated state"
+* "AI-generated recommendation"
+* "pilot evidence"
+* "requires clinical validation"
+
+---
+
+# O. Minimum Dataset Requirements for a Meaningful Study
+
+The research should aim to collect:
+
+### Patient/session metadata
+
+* participant ID
+* session number
+* exercise
+* difficulty
+* duration
+* clinical condition
+
+### Functional data
+
+* movement trajectory
+* accuracy
+* velocity
+* reaction time
+* errors
+* repetitions
+
+### Behavioural data
+
+* retries
+* hesitation
+* voluntary repetitions
+* task abandonment
+* difficulty selection
+* progression choices
+* time-on-task
+
+### Engagement measures
+
+* session adherence
+* self-reported engagement
+* perceived difficulty
+* usability
+* appropriate validated questionnaires
+
+### Clinical measures
+
+Where patient research is conducted, use appropriate validated rehabilitation outcomes.
+
+---
+
+# P. Minimum Experimental Baseline
+
+Any adaptive AI study should ideally compare against at least one baseline:
+
+**Baseline A:** Fixed difficulty.
+
+**Baseline B:** Rule-based adaptive difficulty.
+
+**Experimental:** AI-driven adaptive difficulty.
+
+This allows the research to determine whether AI provides value beyond simple threshold-based adaptation.
+
+---
+
+# Q. Preferred MVP
+
+The initial prototype should use:
+
+* VR or desktop immersive environment
+* one rehabilitation task
+* camera/pose estimation OR VR controller
+* movement analytics
+* behavioural logging
+* basic patient-state model
+* adaptive difficulty
+* simple personalised gamification
+* therapist override
+
+Avoid unnecessary BCI, EEG, robotics and multi-sensor complexity in the first study.
+
+---
+
+# R. Final Research Logic
+
+The entire project should follow:
+
+**Sense**
+
+→ What did the patient do?
+
+**Interpret**
+
+→ What does the movement indicate?
+
+**Observe**
+
+→ How did the patient interact?
+
+**Estimate**
+
+→ What is the current functional + behavioural state?
+
+**Decide**
+
+→ What should change?
+
+**Adapt**
+
+→ Change task/gamification.
+
+**Measure**
+
+→ Did the patient respond differently?
+
+**Learn**
+
+→ Update the patient model.
+
+**Repeat**
+
+→ Continuous closed-loop rehabilitation.
+
+This is the central conceptual architecture of the research programme.
+
