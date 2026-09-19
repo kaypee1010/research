@@ -15,6 +15,733 @@
 
 ------------------------------------------------------------------------
 
+# IMPORTANT REVISION — NARI-LIFE 360, NARI VOICE DECISION, AND NEW OPPORTUNITY TRACK
+
+**Revision date:** 20 September 2026
+
+This revision corrects and extends the earlier knowledge base.
+
+## 1. NARI VOICE — EXPLICITLY DROPPED
+
+**NARI Voice should NOT be treated as a separate concept/startup.**
+
+It was discussed as a possible low-literacy interface, but the strategic decision is to **skip it as a standalone innovation**.
+
+If voice/Haryanvi/Hindi conversational access is eventually useful, it can be treated as a future accessibility feature inside NARI-LIFE 360. It should not consume the core submission narrative, prototype effort, or evaluation space.
+
+---
+
+# 2. NARI-LIFE 360 — THE MISSING CONCEPT
+
+The earlier document treated **NARI 2047** as the umbrella architecture, but did not preserve the important intermediate concept discussed in brainstorming:
+
+# NARI-LIFE 360
+## Women's Economic Participation Operating System
+
+### The distinction
+
+**NARI 2047 = policy/strategic umbrella**
+
+**NARI-LIFE 360 = the actual decision engine/platform**
+
+**NARI-CONTINUITY AI = employment/retention module**
+
+**NARI HEALTH-TO-WORK = health-continuity module**
+
+This is a cleaner architecture.
+
+```text
+                         NARI 2047
+                 Haryana Women 2047 Mission
+                              │
+                              ▼
+                       NARI-LIFE 360
+            Women's Economic Participation OS
+                              │
+        ┌─────────────────────┼─────────────────────┐
+        │                     │                     │
+        ▼                     ▼                     ▼
+   HEALTH                  CAPABILITY          ACCESSIBILITY
+        │                     │                     │
+   Screening              Education            Mobility
+   Risk                   Skills               Childcare
+   Referral               Digital literacy     Hostel
+   Follow-up              Career readiness     Work radius
+                                                Timing
+        │                     │                     │
+        └─────────────────────┼─────────────────────┘
+                              │
+                              ▼
+                         OPPORTUNITY
+                              │
+                  Jobs / Apprenticeships
+                  Entrepreneurship
+                  Green jobs
+                  MSMEs
+                              │
+                              ▼
+                         CONTINUITY
+                              │
+             Retention / Re-entry / Progression
+                         / Income Growth
+                              │
+                              ▼
+                HARYANA WOMEN'S ECONOMIC
+                    PARTICIPATION DASHBOARD
+                              │
+                              ▼
+                     GOVERNMENT ACTION
+                              │
+                              ▼
+                    MEASURABLE OUTCOME
+```
+
+---
+
+# 3. THE FIVE-LAYER NARI-LIFE 360 MODEL
+
+## Layer 1 — HEALTH
+
+```text
+Screening
+   ↓
+Risk
+   ↓
+Referral
+   ↓
+Follow-up
+```
+
+The key is not diagnosis alone.
+
+The key is **whether health needs are successfully converted into completed care and continuity**.
+
+---
+
+## Layer 2 — CAPABILITY
+
+```text
+Education
+   ↓
+Skills
+   ↓
+Digital literacy
+   ↓
+Career readiness
+```
+
+The platform should identify not merely whether a woman has a qualification, but whether she has the **capability required for an accessible opportunity**.
+
+---
+
+## Layer 3 — ACCESSIBILITY
+
+```text
+Transport
+Childcare
+Hostel
+Work radius
+Working hours
+Safety
+```
+
+This is where the "qualified but not participating" problem becomes visible.
+
+A woman may have:
+
+**skill fit = high**
+
+but:
+
+**accessibility fit = low**
+
+The system should expose this difference.
+
+---
+
+## Layer 4 — OPPORTUNITY
+
+```text
+Jobs
+Apprenticeships
+Entrepreneurship
+Green jobs
+MSMEs
+```
+
+The platform should connect capability + accessibility with actual economic opportunities.
+
+---
+
+## Layer 5 — CONTINUITY
+
+```text
+Employment entry
+      ↓
+Retention
+      ↓
+Re-entry
+      ↓
+Progression
+      ↓
+Income growth
+```
+
+This is the decisive outcome layer.
+
+---
+
+# 4. THE GOVERNMENT METRIC MUST CHANGE
+
+The weak metric:
+
+> "10,000 women trained."
+
+The stronger outcome chain:
+
+```text
+10,000 women trained
+        ↓
+6,400 employed
+        ↓
+5,100 retained after 6 months
+        ↓
+3,700 retained after 12 months
+        ↓
+₹X aggregate earnings increase
+```
+
+The exact numbers above are **illustrative only** and must never be presented as actual results unless measured in the pilot.
+
+The important design principle is:
+
+> **Government should be able to see the complete conversion funnel from capability to sustained economic participation.**
+
+---
+
+# 5. NARI-LIFE 360 — WHY IT IS NOT "ANOTHER WOMEN'S APP"
+
+The proposition is not:
+
+> "A woman can search for jobs."
+
+It is:
+
+> **"Government can understand why women are not converting capability into sustained economic participation, and can see which intervention changes the outcome."**
+
+That creates a decision engine rather than another service portal.
+
+---
+
+# 6. NARI-LIFE 360 — CORE GOVERNMENT QUESTIONS
+
+The platform should answer:
+
+### Population
+
+- How many women are economically inactive?
+- Where are they?
+- What are their capability profiles?
+
+### Barrier
+
+- Why are they not entering work?
+- Is the barrier skill, mobility, childcare, safety, timing, health or opportunity?
+
+### Intervention
+
+- Which government intervention is appropriate?
+- Where should a crèche be located?
+- Which transport route matters?
+- Where is a skill programme actually needed?
+- Which employer/cluster has compatible opportunities?
+
+### Outcome
+
+- Did she enter work?
+- Did she remain?
+- Did she return after interruption?
+- Did income increase?
+- Did the intervention produce sustained participation?
+
+---
+
+# 7. NARI-LIFE 360 — THE "360" MEANING
+
+The 360 should mean **life-stage and participation continuity**, not simply "many features."
+
+```text
+LEARN
+  ↓
+BECOME READY
+  ↓
+ACCESS
+  ↓
+ENTER
+  ↓
+STAY
+  ↓
+GROW
+  ↓
+PAUSE IF NECESSARY
+  ↓
+RETURN
+```
+
+The platform therefore follows the **economic life cycle** of a woman rather than treating employment as a one-time placement event.
+
+---
+
+# 8. UPDATED NARI 2047 ARCHITECTURE
+
+```text
+                         NARI 2047
+                             │
+                             ▼
+                       NARI-LIFE 360
+                             │
+          ┌──────────────────┼──────────────────┐
+          │                  │                  │
+          ▼                  ▼                  ▼
+       HEALTH            CAPABILITY        ACCESSIBILITY
+          │                  │                  │
+          │                  │                  │
+          └──────────────────┼──────────────────┘
+                             ▼
+                        OPPORTUNITY
+                             │
+                             ▼
+                        CONTINUITY
+                             │
+        ┌────────────────────┼────────────────────┐
+        ▼                    ▼                    ▼
+      ENTER                 STAY                 RETURN
+                             │
+                             ▼
+                       PROGRESSION
+                             │
+                             ▼
+                       INCOME GROWTH
+                             │
+                             ▼
+              HARYANA WOMEN 2047 DASHBOARD
+```
+
+---
+
+# 9. UPDATED RELATIONSHIP BETWEEN THE TWO SHORTLISTED MODULES
+
+NARI-LIFE 360 does **not** replace the two concepts.
+
+It gives them a coherent product architecture.
+
+```text
+                 NARI-LIFE 360
+                       │
+          ┌────────────┴────────────┐
+          │                         │
+          ▼                         ▼
+ NARI-CONTINUITY AI        NARI HEALTH-TO-WORK
+          │                         │
+          ▼                         ▼
+ Economic participation       Health continuity
+ intelligence                intelligence
+          │                         │
+          └────────────┬────────────┘
+                       ▼
+              WOMEN 2047 DATA LAYER
+                       │
+       ┌───────────────┼────────────────┐
+       │               │                │
+       ▼               ▼                ▼
+   Employment       Mobility          Health
+       │               │                │
+       ▼               ▼                ▼
+   Childcare         Safety          Follow-up
+       │               │                │
+       └───────────────┼────────────────┘
+                       ▼
+               GOVERNMENT ACTION
+                       │
+                       ▼
+             MEASURABLE OUTCOME
+                       │
+          ┌────────────┼────────────┐
+          ▼            ▼            ▼
+       ENTER        STAY          RETURN
+```
+
+---
+
+# 10. NEWLY RESEARCHED OPPORTUNITY: WATER SECURE HARYANA
+
+A separate area deserves serious consideration.
+
+## Concept name
+
+# HARYANA WATER-SECURE AI
+### Water-to-Outcome Intelligence Platform
+
+This is **not** a generic irrigation app.
+
+It is a proposed intelligence layer for Haryana's water-security and crop-transition programmes.
+
+As of August 2026, Haryana announced the **Water Secure Haryana** programme. The programme targets waterlogged and saline land reclamation, water-efficient crops, climate-smart agriculture and reduction of water-intensive cropping. It includes a six-year proposed programme estimated at ₹5,714.80 crore, with performance-linked World Bank financing proposed under a Program-for-Results framework. citeturn0search0turn0search12
+
+The same programme includes targets such as:
+
+- 2 lakh acres of waterlogged/saline land reclamation
+- 5 lakh acres under DSR in a specified cluster
+- 1.12 lakh acres under alternative crops in another cluster
+- soil testing and related land-management interventions
+
+Haryana's agricultural roadmap also includes annual soil-health cards for 15 lakh farmers, 3 lakh acres under water-saving techniques such as DSR, 15,000 crop-residue-management machines annually, and an objective of zero stubble burning. citeturn0search4
+
+### Why this matters strategically
+
+The programme is explicitly **target- and outcome-oriented**.
+
+That creates an innovation gap:
+
+> Who predicts which intervention will work where, tracks adoption, verifies outcomes, and helps government optimise scarce resources?
+
+---
+
+# 11. HARYANA WATER-SECURE AI — ARCHITECTURE
+
+```text
+Satellite
+   +
+Soil
+   +
+Weather
+   +
+Groundwater
+   +
+Crop
+   +
+Irrigation
+   +
+Farmer economics
+   +
+Government intervention
+        ↓
+FIELD WATER / CROP INTELLIGENCE
+        ↓
+Predict
+        ↓
+Recommend
+        ↓
+Target intervention
+        ↓
+Monitor adoption
+        ↓
+Measure outcome
+```
+
+---
+
+# 12. WATER-SECURE AI — POSSIBLE MODULES
+
+## A. Water Stress Map
+
+Field/block-level prediction of water stress.
+
+## B. Crop Transition Engine
+
+Recommend alternatives based on:
+
+- water requirement
+- soil
+- weather
+- expected economics
+- local infrastructure
+- policy incentives
+
+## C. Intervention Targeting
+
+Determine where government resources could be deployed.
+
+## D. DSR / Diversification Adoption
+
+Track adoption geographically.
+
+## E. Water-Saving Outcome Estimation
+
+Estimate and validate water-use change.
+
+## F. Waterlogged/Saline Land Recovery
+
+Track:
+
+```text
+affected
+→ intervention
+→ recovered
+→ productive
+```
+
+## G. Residue-Burning Risk
+
+Potential future module:
+
+```text
+Harvest timing
++
+crop
++
+weather
++
+past behaviour
++
+CRM availability
+        ↓
+burning-risk prediction
+        ↓
+targeted intervention
+```
+
+---
+
+# 13. WATER-SECURE AI — GOVERNMENT DASHBOARD
+
+Instead of:
+
+> "5 lakh acres targeted."
+
+show:
+
+```text
+5,00,000 acres target
+        ↓
+3,82,000 acres enrolled
+        ↓
+2,71,000 acres adopted
+        ↓
+2,10,000 acres verified
+        ↓
+estimated water saved
+        ↓
+farmer income effect
+```
+
+The critical idea:
+
+> **Measure conversion from policy target → adoption → verified outcome.**
+
+This is particularly relevant because the proposed Water Secure Haryana programme uses performance-linked financing. citeturn0search0
+
+---
+
+# 14. WATER-SECURE AI — EVALUATION TEST
+
+| Criterion | Strategic fit |
+|---|---|
+| Solution | Directly supports targeting and outcome measurement |
+| Uniqueness | Intelligence layer rather than irrigation app |
+| Impact | Water, agriculture, farmer income, climate |
+| Scalability | Field → block → district → state |
+| Clarity | Easy to demonstrate visually |
+| Problem relevance | Directly aligned with current Water Secure Haryana |
+| Existing solutions | Government programmes exist; outcome-intelligence gap remains |
+| Value proposition | Better allocation + measurement |
+| Potential impact | Large physical area and government expenditure |
+| Market size | Government + agriculture ecosystem + climate programmes |
+| Ease of scaling | Software/data architecture can scale |
+
+This should be treated as a **third candidate for evidence-based comparison**, not declared the winner in advance.
+
+---
+
+# 15. ANOTHER AREA WORTH EXPLORING: MSME GROWTH INTELLIGENCE
+
+A second non-women track worth keeping on the radar is:
+
+# HARYANA MSME-GROWTH OS
+
+### Concept
+
+A district-level intelligence system that helps MSMEs move from:
+
+```text
+registration
+→ approvals
+→ finance
+→ technology
+→ skills
+→ market
+→ procurement
+→ exports
+→ productivity
+```
+
+Haryana's current industrial policy direction includes emerging-technology sectors, employment generation, industrial clusters and startup expansion. The state has also enacted the Haryana Right to Business Bill 2026, including in-principle approvals for eligible manufacturing MSMEs within 15 working days and deemed approval provisions where applicable. citeturn0search1turn0search10turn0search15
+
+### Innovation gap
+
+Do not build another MSME registration portal.
+
+Instead:
+
+> **Predict which MSMEs are likely to stagnate, identify the constraint, and recommend the next intervention.**
+
+Potential variables:
+
+- productivity
+- technology adoption
+- finance
+- workforce
+- energy
+- market access
+- procurement
+- exports
+- compliance/approval bottlenecks
+
+Potential government output:
+
+> "These 500 MSMEs are most likely to benefit from Industry 4.0 support."
+
+or:
+
+> "These industrial clusters have a skills bottleneck."
+
+---
+
+# 16. CURRENT STRATEGIC OPTION SET
+
+The innovation portfolio now looks like:
+
+```text
+                    HARYANA 2047
+                         │
+        ┌────────────────┼─────────────────┐
+        │                │                 │
+        ▼                ▼                 ▼
+     WOMEN             WATER             MSME
+        │                │                 │
+        ▼                ▼                 ▼
+ NARI-LIFE 360      WATER-SECURE       MSME-GROWTH
+                    AI                 OS
+        │
+ ┌──────┴────────┐
+ ▼               ▼
+Continuity     Health-to-Work
+AI             AI
+```
+
+---
+
+# 17. HOW TO THINK ABOUT "HIGH PROBABILITY"
+
+A political/government competition does not allow a reliable probability of winning to be calculated from public information.
+
+Instead, use a **selection test**.
+
+A concept becomes more defensible when it has all of these:
+
+### A. Explicit government priority
+
+Is the problem visibly present in a current roadmap/programme?
+
+### B. Large outcome
+
+Can the solution affect thousands/millions of people, acres, transactions or enterprises?
+
+### C. Existing government spending/intervention
+
+Is there already a programme whose effectiveness can be improved?
+
+### D. Clear intelligence gap
+
+Can you identify a missing:
+
+- prediction
+- targeting
+- optimisation
+- coordination
+- measurement
+- verification
+
+layer?
+
+### E. Prototype feasibility
+
+Can SGT demonstrate it before the deadline?
+
+### F. Evidence
+
+Can you validate the model with actual pilot data?
+
+### G. Scale
+
+Can the same architecture expand statewide?
+
+### H. Jury clarity
+
+Can the value proposition be understood in 30 seconds?
+
+---
+
+# 18. AVOID THESE PATTERNS
+
+Avoid:
+
+- generic chatbot
+- generic job portal
+- generic AI diagnosis
+- generic skill marketplace
+- generic farmer advisory app
+- generic grievance portal
+- generic "one app for everything"
+
+The innovation should be:
+
+> **decision intelligence + intervention + measurable outcome.**
+
+---
+
+# 19. UPDATED STRATEGIC RECOMMENDATION
+
+Do not collapse NARI-LIFE 360 into the word "NARI 2047."
+
+Use the hierarchy:
+
+### **NARI 2047**
+The strategic vision.
+
+### **NARI-LIFE 360**
+The flagship operating system / decision engine.
+
+### **NARI-CONTINUITY AI**
+Economic participation module.
+
+### **NARI HEALTH-TO-WORK**
+Health continuity module.
+
+### **Haryana Women's Economic Participation Dashboard**
+Government outcome layer.
+
+And explicitly:
+
+### **NARI Voice**
+**Dropped as a standalone concept.**
+
+---
+
+# 20. THE MOST IMPORTANT DESIGN IDEA
+
+The platform should never optimise for:
+
+> **"number of services delivered."**
+
+It should optimise for:
+
+> **"number of women whose economic participation improved as a result of intervention."**
+
+That distinction should appear throughout the application.
+
+
+
 # 1. Context: Seva First Innovation Challenge
 
 The Seva First Innovation Challenge is positioned by Startup Haryana as
