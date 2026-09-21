@@ -106,10 +106,12 @@ footer p{font-family:var(--mono);font-size:11.5px}
 .nextmob a small{display:block;font-weight:400;font-size:11.5px;opacity:.75;font-family:var(--mono);letter-spacing:.08em}
 .nextmob .ar{font-size:22px}
 @media(max-width:640px){
-  .panel{width:100vw;padding:22px 16px 70px}
-  .panel table{font-size:13px}
-  .panel td,.panel th{padding:7px 8px}
-  .panel h2{font-size:19px}
+  .panel{position:fixed;inset:0;width:100%;height:100%;padding:8px 16px 40px;box-shadow:none;right:0}
+  .panel.on{right:0}
+  .pmhead{margin:0 -16px 12px;padding:12px 16px;position:sticky;top:0}
+  .panel h2{font-size:20px;margin:16px 0 8px}
+  .panel table{font-size:13.5px}
+  .panel td,.panel th{padding:8px 9px}
   .fmore .fgrid{grid-template-columns:1fr}
 }
 /* ---- overlay panel ---- */
@@ -118,7 +120,10 @@ footer p{font-family:var(--mono);font-size:11.5px}
 .panel{position:fixed;top:0;right:-660px;bottom:0;width:min(620px,94vw);background:var(--paper);box-shadow:-12px 0 40px rgba(16,34,46,.18);transition:right .25s;z-index:95;overflow-y:auto;padding:38px 36px 60px}
 .panel.on{right:0}
 .panel h2{margin-top:0;border-top:none;padding-top:0}
-.pclose{position:absolute;top:14px;right:18px;background:#fff;border:1px solid var(--line);border-radius:6px;width:36px;height:36px;font-size:19px;color:var(--slate);cursor:pointer}
+.pmhead{position:sticky;top:0;z-index:5;display:flex;justify-content:flex-end;padding:10px 0;margin:-26px -36px 10px;background:var(--paper);border-bottom:1px solid var(--line)}
+.pclose{background:#fff;border:1px solid var(--line);border-radius:8px;width:42px;height:42px;font-size:24px;line-height:1;color:var(--ink);cursor:pointer;margin-right:18px}
+.panel .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.panel .ganttwrap{max-width:100%}
 .ovsrc{display:none}
 </style>
 </head>
@@ -381,7 +386,7 @@ function togglePanel(id,btn){
 function openPanel(id){
   var src=document.getElementById(id);
   var p=document.getElementById('panel');
-  p.innerHTML='<button class="pclose" onclick="closePanel()" aria-label="Close">×</button>'+src.innerHTML;
+  p.innerHTML='<div class="pmhead"><button class="pclose" onclick="closePanel()" aria-label="Close">×</button></div>'+src.innerHTML;p.querySelectorAll('table').forEach(function(tb){var w=document.createElement('div');w.className='tscroll';tb.parentNode.insertBefore(w,tb);w.appendChild(tb);});
   curPanel=id;p.classList.add('on');document.getElementById('pback').classList.add('on');
   document.body.style.overflow='hidden';p.scrollTop=0;
 }
