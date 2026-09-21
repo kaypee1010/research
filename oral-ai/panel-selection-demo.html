@@ -38,11 +38,6 @@ ol li{margin:8px 0}
 footer{margin:46px 0 60px;border-top:1px solid var(--line);padding-top:16px}
 footer p{font-family:var(--mono);font-size:11.5px;color:#8FA3AF}
 
-.kitnav{position:sticky;top:0;z-index:50;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;background:#FFFFFFEE;border-bottom:1px solid var(--line);padding:9px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.06em}
-.kitnav a{color:var(--slate);text-decoration:none;white-space:nowrap}
-.kitnav a:hover{color:var(--teal)}
-.kitnav a.cur{color:var(--teal);border-bottom:2px solid var(--teal)}
-@media print{.kitnav{display:none}}
 
 .kitsb{position:fixed;left:0;top:0;bottom:0;width:250px;background:#F4F7F9;border-right:1px solid var(--line);padding:26px 0;overflow-y:auto;z-index:60;font-family:var(--sans)}
 .kitsb .klab{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--slate);padding:0 22px;margin-bottom:14px}
@@ -54,6 +49,21 @@ footer p{font-family:var(--mono);font-size:11.5px;color:#8FA3AF}
 @media(min-width:1100px){body{padding-left:250px}.kitnav{display:none}.page{margin:0 auto}}
 @media(max-width:1099px){.kitsb{display:none}}
 @media print{.kitsb{display:none!important}body{padding-left:0!important}}
+
+/* ---- mobile traversal: bottom pager + footer more ---- */
+.kitnav{display:none!important}
+.pager{display:none;max-width:1000px;margin:0 auto;padding:0 24px 30px}
+.pager a{flex:1;display:flex;align-items:center;justify-content:space-between;gap:8px;background:#fff;color:var(--ink);text-decoration:none;padding:14px 16px;font-size:13px;font-weight:500;border:1px solid var(--line);border-radius:8px}
+.pager a small{display:block;font-weight:400;font-size:9.5px;color:var(--slate);font-family:var(--mono);letter-spacing:.08em}
+.pager a.nx{justify-content:flex-end;text-align:right}
+.pager a.pv{margin-right:10px}
+.pager .ar{font-size:20px;color:var(--teal)}
+.fmob{display:none;padding:0 24px 30px;max-width:1000px;margin:0 auto}
+.fmob .fmlab{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--slate);margin-bottom:8px}
+.fmob .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fmob a{display:block;background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:6px;padding:12px;font-size:12.5px;color:var(--ink);text-decoration:none}
+@media(max-width:1099px){.pager{display:flex}.fmob{display:block}}
+@media print{.pager,.fmob{display:none!important}}
 </style>
 </head>
 <body>
@@ -71,7 +81,6 @@ footer p{font-family:var(--mono);font-size:11.5px;color:#8FA3AF}
 <a class="plus" href="index.html?open=ov-risks">Risks & mitigation</a>
 <a class="plus" href="index.html?open=ov-refs">References</a>
 </nav>
-<nav class="kitnav"><a href="index.html">OVERVIEW</a><a href="index.html">PROPOSAL · HOME</a><a href="tier1-handout.html">TIER 1</a><a href="tier2-handout.html">TIER 2</a><a href="tissue-saliva-bridge-infographic.html">BRIDGE</a><a href="demo-explainer-handout.html">DEMO · 1-PAGER</a><a href="panel-selection-demo.html" class="cur">DEMO · FULL</a></nav>
 <div class="doc">
 <span class="eyebrow">Tier 2 · Demo — companion to proposal OAI-2026</span>
 <h1>How a salivary gene panel is selected — a <em>demo</em> on a miniature dataset</h1>
@@ -153,5 +162,7 @@ footer p{font-family:var(--mono);font-size:11.5px;color:#8FA3AF}
 
 <footer><p>Demo · numbers illustrative, sources real · prepared by Kamal Preet Singh for discussion with Dr. Shalini Kapoor · September 2026</p></footer>
 </div>
+<div class="fmob"><div class="fmlab">MORE — EXPANDS IN THE PROPOSAL</div><div class="fgrid"><a href="index.html?open=ov-timeline">+ Timeline & milestones</a><a href="index.html?open=ov-roles">+ Roles & responsibilities</a><a href="index.html?open=ov-qr">+ Quick reference</a><a href="index.html?open=ov-risks">+ Risks & mitigation</a><a href="index.html?open=ov-refs">+ References</a></div></div>
+<div class="pager"><a class="pv" href="demo-explainer-handout.html"><span class="ar">←</span><span><small>PREV</small>05 · Demo — poster</span></a><a class="nx" style="visibility:hidden"><span>—</span><span class="ar">→</span></a></div>
 </body>
 </html>
