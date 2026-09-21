@@ -45,9 +45,34 @@ tr.hi td{background:var(--teal-soft)}
 .scard b{color:var(--ink)}
 .foot{margin-top:auto;border-top:1px solid var(--line);padding-top:14px;display:flex;justify-content:space-between;align-items:center}
 .foot p{font-family:var(--mono);font-size:10px;color:#8FA3AF}
+
+.kitsb{position:fixed;left:0;top:0;bottom:0;width:250px;background:#F4F7F9;border-right:1px solid var(--line);padding:26px 0;overflow-y:auto;z-index:60;font-family:var(--sans)}
+.kitsb .klab{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--slate);padding:0 22px;margin-bottom:14px}
+.kitsb a{display:block;padding:11px 22px;font-size:13.5px;color:var(--slate);text-decoration:none;border-left:3px solid transparent;line-height:1.4}
+.kitsb a.cur{color:var(--ink);border-left-color:var(--teal);background:var(--teal-soft)}
+.kitsb a:hover{color:var(--teal)}
+.kitsb .morelab{margin-top:20px;border-top:1px solid var(--line);padding-top:18px}
+.kitsb a.plus::before{content:"+ ";color:var(--teal);font-family:var(--mono)}
+@media(min-width:1100px){body{padding-left:250px}.kitnav{display:none}.page{margin:0 auto}}
+@media(max-width:1099px){.kitsb{display:none}}
+@media print{.kitsb{display:none!important}body{padding-left:0!important}}
 </style>
 </head>
 <body>
+<nav class="kitsb"><div class="klab">OAI-2026 · RESEARCH KIT</div>
+<a href="index.html">01 · Proposal — home</a>
+<a href="tier1-handout.html">02 · Tier 1 — one-pager</a>
+<a href="tier2-handout.html">03 · Tier 2 — one-pager</a>
+<a href="tissue-saliva-bridge-infographic.html">04 · Tissue → saliva bridge</a>
+<a href="demo-explainer-handout.html" class="cur">05 · Demo — poster</a>
+<a href="panel-selection-demo.html">06 · Demo — full</a>
+<div class="klab morelab">MORE — OPENS IN PROPOSAL</div>
+<a class="plus" href="index.html?open=ov-timeline">Timeline & milestones</a>
+<a class="plus" href="index.html?open=ov-roles">Roles & responsibilities</a>
+<a class="plus" href="index.html?open=ov-qr">Quick reference</a>
+<a class="plus" href="index.html?open=ov-risks">Risks & mitigation</a>
+<a class="plus" href="index.html?open=ov-refs">References</a>
+</nav>
 <div class="page">
   <p class="eyebrow">TIER 2 · DEMO · FROM GENES TO A PANEL</p>
   <h1>Two tables, three filters — <em>one panel.</em></h1>
@@ -98,6 +123,5 @@ tr.hi td{background:var(--teal-soft)}
     <p>SEPTEMBER 2026</p>
   </div>
 </div>
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
