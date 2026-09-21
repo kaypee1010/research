@@ -169,7 +169,7 @@ footer p{font-family:var(--mono);font-size:11.5px}
 <body>
 <nav class="nav">
   <div class="nav-brand">
-    <img class="nav-logo" src="KP_Singh.jpg" alt="K.P. Singh"/>
+    <img class="nav-logo" src="KP_Singh.png" alt="K.P. Singh"/>
     <div>
       <div class="nav-name">K.P. Singh</div>
       <div class="nav-sub">SGT University · Research Program OAI-2026</div>
@@ -460,7 +460,7 @@ footer p{font-family:var(--mono);font-size:11.5px}
   </ol>
 </div>
 
-<div class="pback" onclick="closePanel()"></div>
+<div class="pback" id="pback" onclick="closePanel()"></div>
 <div class="panel" id="panel"></div>
 
 <script>
@@ -473,17 +473,18 @@ refreshThemeIcon();
 
 /* ---------- panels: toggle, phone-safe ---------- */
 var curPanel=null;
+var panelEl=document.getElementById('panel');
+var backdropEl=document.getElementById('pback');
 function openPanel(id){
-  var src=document.getElementById(id);if(!src)return;
-  var p=document.getElementById('panel');
-  p.innerHTML='<div class="pmhead"><button type="button" class="pclose" onclick="closePanel()" aria-label="Close">Close ×</button></div>'+src.innerHTML;
-  p.querySelectorAll('table').forEach(function(tb){var w=document.createElement('div');w.className='tscroll';tb.parentNode.insertBefore(w,tb);w.appendChild(tb);});
-  curPanel=id;p.classList.add('on');document.getElementById('pback').classList.add('on');
-  document.body.style.overflow='hidden';p.scrollTop=0;markActive(id);
+  var src=document.getElementById(id);if(!src||!panelEl)return;
+  panelEl.innerHTML='<div class="pmhead"><button type="button" class="pclose" onclick="closePanel()" aria-label="Close">Close ×</button></div>'+src.innerHTML;
+  panelEl.querySelectorAll('table').forEach(function(tb){var w=document.createElement('div');w.className='tscroll';tb.parentNode.insertBefore(w,tb);w.appendChild(tb);});
+  curPanel=id;panelEl.classList.add('on');if(backdropEl)backdropEl.classList.add('on');
+  document.body.style.overflow='hidden';panelEl.scrollTop=0;markActive(id);
 }
 function closePanel(){
-  document.getElementById('panel').classList.remove('on');
-  document.getElementById('pback').classList.remove('on');
+  if(panelEl)panelEl.classList.remove('on');
+  if(backdropEl)backdropEl.classList.remove('on');
   document.body.style.overflow='';curPanel=null;markActive(null);
 }
 function markActive(id){
@@ -501,7 +502,7 @@ document.querySelectorAll('[data-panel]').forEach(function(b){
   b.setAttribute('data-label',b.textContent.replace(/^[+−]\s*/,''));
   b.addEventListener('click',function(e){e.preventDefault();togglePanel(this.getAttribute('data-panel'));});
 });
-document.getElementById('pback').addEventListener('click',closePanel);
+if(backdropEl)backdropEl.addEventListener('click',closePanel);
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closePanel();});
 window.addEventListener('load',function(){
   var m=new URLSearchParams(location.search).get('open');
