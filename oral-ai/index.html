@@ -91,10 +91,27 @@ footer p{font-family:var(--mono);font-size:11.5px}
 @media(min-width:1100px){body{padding-left:250px}}
 @media(max-width:1099px){.kitsb{display:none}}
 @media print{.kitsb,.pback,.panel,.mobmore{display:none!important}body{padding-left:0}}
-/* ---- mobile chips row ---- */
-.mobmore{display:none;gap:8px;padding:10px 16px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:55;overflow-x:auto}
-.mobmore button{font-family:var(--mono);font-size:11px;padding:6px 12px;border-radius:20px;border:1px solid var(--line);background:var(--paper);color:var(--slate);white-space:nowrap;cursor:pointer}
-@media(max-width:1099px){.mobmore{display:flex}}
+/* ---- mobile: footer expandables + bottom arrow ---- */
+.fmore{display:none;margin-top:34px}
+.fmore .fmlab{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--slate);margin-bottom:10px}
+.fmore .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.fmore button{font-family:var(--mono);font-size:12px;letter-spacing:.04em;padding:14px 12px;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:6px;background:#fff;color:var(--ink);cursor:pointer;text-align:left}
+.fmore button:hover{border-color:var(--teal);color:var(--teal)}
+.nextmob{display:none;margin-top:14px}
+@media(max-width:1099px){
+  .fmore{display:block}
+  .nextmob{display:block}
+}
+.nextmob a{display:flex;justify-content:space-between;align-items:center;background:var(--navy);color:#fff;text-decoration:none;border-radius:8px;padding:16px 20px;font-size:14.5px;font-weight:500}
+.nextmob a small{display:block;font-weight:400;font-size:11.5px;opacity:.75;font-family:var(--mono);letter-spacing:.08em}
+.nextmob .ar{font-size:22px}
+@media(max-width:640px){
+  .panel{width:100vw;padding:22px 16px 70px}
+  .panel table{font-size:13px}
+  .panel td,.panel th{padding:7px 8px}
+  .panel h2{font-size:19px}
+  .fmore .fgrid{grid-template-columns:1fr}
+}
 /* ---- overlay panel ---- */
 .pback{position:fixed;inset:0;background:rgba(16,34,46,.45);opacity:0;pointer-events:none;transition:opacity .2s;z-index:90}
 .pback.on{opacity:1;pointer-events:auto}
@@ -122,13 +139,6 @@ footer p{font-family:var(--mono);font-size:11.5px}
   <button class="plus" onclick="togglePanel('ov-refs',this)">References</button>
 </nav>
 
-<div class="mobmore">
-  <button onclick="togglePanel('ov-timeline',this)">TIMELINE</button>
-  <button onclick="togglePanel('ov-roles',this)">ROLES</button>
-  <button onclick="togglePanel('ov-qr',this)">QUICK REFERENCE</button>
-  <button onclick="togglePanel('ov-risks',this)">RISKS</button>
-  <button onclick="togglePanel('ov-refs',this)">REFERENCES</button>
-</div>
 
 <div class="doc">
 <header class="meta">
@@ -137,16 +147,13 @@ footer p{font-family:var(--mono);font-size:11.5px}
   </div>
   <h1>AI-Driven Oral Health: a two-tier research program — <em>oral–systemic risk prediction · a salivary gene panel for cancer screening</em></h1>
   <div class="rolebox">
-    <div class="pi"><span class="r">PRINCIPAL INVESTIGATOR (CLINICAL &amp; LAB LEAD)</span>Dr. Shalini Kapoor — Research Dean. Research direction, ethics, cohort &amp; wet-lab validation.</div>
-    <div class="copi"><span class="r">CO-PRINCIPAL INVESTIGATOR (COMPUTATIONAL LEAD)</span>Kamal Preet Singh — AI/ML Engineer &amp; Data Analyst. Data pipelines, modeling, validation.</div>
+    <div class="pi"><span class="r">PRINCIPAL INVESTIGATOR (CLINICAL &amp; LAB LEAD)</span>Dr. Shalini Kapoor — Research Dean. Research direction, ethics, cohort &amp; wet-lab validation, corresponding author.</div>
+    <div class="copi"><span class="r">CO-PRINCIPAL INVESTIGATOR (COMPUTATIONAL LEAD)</span>Kamal Preet Singh — AI/ML Engineer &amp; Data Analyst. Data pipelines, modeling, validation, first-author manuscripts.</div>
   </div>
 </header>
 
 <div class="abstract">
-  <p><b>Program summary.</b> A response to the Strategic Research Leadership Meeting's call — "connect ideas, create collaborations." </p>
-    <p>Published dental-AI is abundant but rarely calibrated, externally validated, fairness-audited, or clinically translated — the field's own reviews document this gap. This program attacks it with two projects on one shared computational framework:</p> 
-      <p><b>Tier 1</b> — reverse oral–systemic risk prediction on NHANES (fast joint paper, public data only);</p>
-      <p><b>Tier 2</b> — an AI-minimal salivary biomarker panel for oral cancer screening (TCGA → saliva → clinical validation in the collaborator's lab). Tier 1 builds the publication record while Tier 2 ramps; both run the same rigor spine: temporal validation, calibration, fairness audit, XAI.</p>
+  <p><b>Program summary.</b> A response to the Strategic Research Leadership Meeting's call — "connect ideas, create collaborations." Published dental-AI is abundant but rarely calibrated, externally validated, fairness-audited, or clinically translated — the field's own reviews document this gap. This program attacks it with two projects on one shared computational framework: <b>Tier 1</b> — reverse oral–systemic risk prediction on NHANES (fast joint paper, public data only); <b>Tier 2</b> — an AI-minimal salivary biomarker panel for oral cancer screening (TCGA → saliva → clinical validation in the collaborator's lab). Tier 1 builds the publication record while Tier 2 ramps; both run the same rigor spine: temporal validation, calibration, fairness audit, XAI.</p>
 </div>
 
 <h2>1 · Why this program</h2>
@@ -248,12 +255,27 @@ footer p{font-family:var(--mono);font-size:11.5px}
 
 <h2>5 · Bandwidth &amp; commitment</h2>
 <div class="callout">
-  <p>The program is <b>phased and public-data-first</b>: <p>Tier 1 requires only a laptop and open datasets;</p> Tier 2's laboratory demands activate <b>only after</b> the month-3 GO/NO-GO gate. Nothing in this proposal requires laboratory expenditure before month 3 — and the first joint manuscript lands within six months regardless of the gate's outcome.</p>
+  <p>The program is <b>phased and public-data-first</b>: Tier 1 requires only a laptop and open datasets; Tier 2's laboratory demands activate <b>only after</b> the month-3 GO/NO-GO gate. Nothing in this proposal requires laboratory expenditure before month 3 — and the first joint manuscript lands within six months regardless of the gate's outcome.</p>
+</div>
+
+<div class="fmore">
+  <div class="fmlab">MORE — CLICK TO EXPAND</div>
+  <div class="fgrid">
+    <button onclick="togglePanel('ov-timeline',this)">+ Timeline &amp; milestones</button>
+    <button onclick="togglePanel('ov-roles',this)">+ Roles &amp; responsibilities</button>
+    <button onclick="togglePanel('ov-qr',this)">+ Quick reference</button>
+    <button onclick="togglePanel('ov-risks',this)">+ Risks &amp; mitigation</button>
+    <button onclick="togglePanel('ov-refs',this)">+ References</button>
+  </div>
 </div>
 
 <footer>
-  <p>Proposal OAI-2026 · Research program · Draft for discussion · Prepared by Kamal Preet Singh, Co-PI candidate · September 2026 · Contact: kamalpreet_soet@sgtuniversity.org</p>
+  <p>Proposal OAI-2026 · Research program · Draft for discussion · Prepared by Kamal Preet Singh, Co-PI candidate · September 2026 · Contact: [email placeholder]</p>
 </footer>
+</div>
+
+<div class="nextmob">
+  <a href="tier1-handout.html"><span><small>NEXT PAGE · 02</small>Tier 1 — one-pager</span><span class="ar">→</span></a>
 </div>
 
 <!-- overlay sources -->
