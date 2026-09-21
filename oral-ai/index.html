@@ -5,12 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Research Program Proposal — AI-Driven Oral Health</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--paper:#FAFBFC;--ink:#10222E;--slate:#46586A;--teal:#0E7C86;--teal-soft:#E3F0F1;--signal:#D64550;--navy:#1D3A52;--line:#DCE4EA;--card:#fff;
+--soft:#F2F6F8;--soft2:#EDF1F4;--soft3:#F0F4F6;--sigsoft:#FDF6F6;--navbg:rgba(250,251,252,.85);--sbbg:#F4F7F9;
 --serif:"Fraunces",Georgia,serif;--sans:"IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+html[data-theme=dark]{--paper:#0D1D28;--ink:#E8EEF2;--slate:#A9BAC6;--teal:#54B8C0;--teal-soft:#123237;--signal:#E0606B;--navy:#2C5570;--line:#243845;--card:#152634;
+--soft:#132330;--soft2:#1A2C39;--soft3:#182936;--sigsoft:#2E1B1E;--navbg:rgba(13,29,40,.86);--sbbg:#0F1E29}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;transition:background .25s,color .25s}
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:70;display:flex;align-items:center;justify-content:space-between;gap:16px;backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line);padding:10px 22px;margin:0 0 20px;background:var(--navbg)}
+.nav-brand{display:flex;align-items:center;gap:10px;min-width:0}
+.nav-logo{width:38px;height:38px;border-radius:50%;object-fit:contain;flex-shrink:0;background:transparent}
+.nav-name{font-weight:700;font-size:.98rem;line-height:1.15}
+.nav-sub{font-size:.76rem;opacity:.7;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:10px}
+.nav-cta{text-decoration:none;font-size:.85rem;font-weight:700;padding:8px 14px;border-radius:999px;white-space:nowrap;background:var(--teal);color:#fff}
+.theme-toggle{background:none;border:1px solid var(--line);color:inherit;font-size:1rem;width:36px;height:36px;border-radius:999px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+@media(max-width:640px){.nav{padding:10px 14px}.nav-sub{display:none}}
+/* ---------- sidebar ---------- */
+.kitsb{position:fixed;left:0;top:0;bottom:0;width:250px;background:var(--sbbg);border-right:1px solid var(--line);padding:26px 0;overflow-y:auto;z-index:60}
+.kitsb .klab{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--slate);padding:0 22px;margin-bottom:14px}
+.kitsb a{display:block;padding:11px 22px;font-size:13.5px;color:var(--slate);text-decoration:none;border-left:3px solid transparent;line-height:1.4}
+.kitsb a.cur{color:var(--ink);border-left-color:var(--teal);background:var(--teal-soft)}
+.kitsb a:hover{color:var(--teal)}
+.kitsb .morelab{margin-top:20px;border-top:1px solid var(--line);padding-top:18px}
+.kitsb button{display:block;width:100%;text-align:left;padding:11px 22px;font-size:13.5px;color:var(--slate);border-left:3px solid transparent;border-top:0;border-right:0;border-bottom:0;background:none;cursor:pointer;font-family:var(--sans);line-height:1.4}
+.kitsb button:hover{color:var(--teal)}
+.kitsb button.act{color:var(--ink);border-left-color:var(--teal);background:var(--teal-soft)}
+@media(min-width:1100px){body{padding-left:250px}}
+@media(max-width:1099px){.kitsb{display:none}}
+@media print{.kitsb,.nav,.pback,.panel,.fmore,.nextmob{display:none!important}body{padding-left:0}}
+/* ---------- doc ---------- */
 .doc{max-width:900px;margin:0 auto;padding:0 28px}
 .reqlabel{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--slate);border:1px solid var(--line);border-radius:4px;display:flex;flex-wrap:wrap;background:var(--card)}
 .reqlabel span{padding:9px 16px;border-right:1px solid var(--line);white-space:nowrap}
@@ -18,7 +45,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 .reqlabel b{color:var(--ink);font-weight:500}
 h1{font-family:var(--serif);font-weight:500;font-size:clamp(25px,4vw,36px);line-height:1.22;margin:26px 0 18px}
 h1 em{font-style:italic;color:var(--teal)}
-h2{font-family:var(--serif);font-weight:500;font-size:23px;margin:44px 0 14px;padding-top:8px;border-top:1px solid var(--line)}
+h2{font-family:var(--serif);font-weight:500;font-size:23px;margin:44px 0 10px;padding-top:8px;border-top:1px solid var(--line)}
 h3{font-size:16.5px;margin:18px 0 6px;font-weight:600}
 p{color:var(--slate);margin:10px 0}
 p b,li b{color:var(--ink)}
@@ -29,105 +56,130 @@ li{margin:6px 0}
 .rolebox .r{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;display:block;margin-bottom:4px}
 .rolebox .pi .r{color:var(--navy)}.rolebox .copi .r{color:var(--teal)}
 .chip{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;padding:2px 8px;border-radius:3px}
-.chip-you{background:var(--teal);color:#fff}.chip-pi{background:var(--navy);color:#fff}.chip-joint{background:#fff;color:var(--signal);border:1.5px solid var(--signal)}
+.chip-you{background:var(--teal);color:#fff}.chip-pi{background:var(--navy);color:#fff}.chip-joint{background:var(--card);color:var(--signal);border:1.5px solid var(--signal)}
 .abstract{background:var(--teal-soft);border-left:4px solid var(--teal);border-radius:0 6px 6px 0;padding:20px 24px;margin:22px 0}
 .abstract p{color:var(--ink)}
 .callout{background:var(--teal-soft);border-left:4px solid var(--teal);border-radius:0 6px 6px 0;padding:16px 22px;margin:18px 0}
 .callout p{color:var(--ink)}
+.cit{font-family:var(--mono);font-size:11px;color:var(--teal);font-weight:500;white-space:nowrap}
 table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0}
 th{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--slate);text-align:left;padding:10px 12px;border-bottom:2px solid var(--ink);font-weight:500}
 td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--slate)}
 td:first-child{color:var(--ink);font-weight:500}
-.arch{display:grid;grid-template-columns:1fr 24px 1fr 24px 1fr 24px 1.15fr;gap:0;align-items:stretch;margin:16px 0}
-.archstep{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:14px 16px}
-.archstep b{display:block;font-size:14px;color:var(--ink);margin:4px 0 2px}
-.archstep small{font-size:12px;color:var(--slate)}
-.archstep .atag{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--teal)}
-.archstep.out{border-color:var(--signal);background:#FDF6F6}
-.archstep.out .atag{color:var(--signal)}
-.alink{display:flex;align-items:center;justify-content:center;color:#B8C4CC}
+/* gap cards */
+.gapgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+.gap{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--signal);border-radius:6px;padding:14px 15px}
+.gap .n{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--signal)}
+.gap b{display:block;font-size:14px;margin:5px 0 0;line-height:1.4}
+/* prior-work bullets + animated flip visual */
+.priorlist{margin:12px 0 8px 0;list-style:none}
+.priorlist li{margin:8px 0;padding:10px 12px 10px 14px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--navy);border-radius:6px;color:var(--slate)}
+.priorlist li b{color:var(--ink)}
+.flowflip{display:grid;grid-template-columns:1fr;gap:12px;margin:18px 0 14px}
+.lane{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px}
+.lane.new{border-color:var(--teal);background:linear-gradient(180deg,var(--card),var(--teal-soft))}
+.lablane{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--slate);display:block;margin-bottom:10px}
+.lane.new .lablane{color:var(--teal)}
+.flowrow{display:grid;grid-template-columns:1fr 44px 1fr;align-items:center;gap:8px}
+.node{border-radius:8px;padding:14px 12px;text-align:center;font-weight:600;line-height:1.3;min-height:78px;display:flex;align-items:center;justify-content:center}
+.node.sys{background:var(--soft);border:1px solid var(--line);color:var(--ink)}
+.node.oral{background:var(--teal-soft);border:1px solid var(--line);color:var(--ink)}
+.node.risk{background:var(--navy);color:#fff}
+.arr{font-size:28px;text-align:center;color:var(--teal);animation:arrPulse 1.6s ease-in-out infinite}
+.swap{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin:0 auto;padding:9px 16px;border-radius:999px;background:var(--teal-soft);color:var(--teal);font-family:var(--mono);font-size:11px;letter-spacing:.12em;border:1px solid var(--line);animation:swapGlow 2.4s ease-in-out infinite}
+.swap::before,.swap::after{content:"▼";font-size:10px}
+@keyframes arrPulse{0%,100%{transform:translateX(0);opacity:.45}50%{transform:translateX(4px);opacity:1}}
+@keyframes swapGlow{0%,100%{box-shadow:0 0 0 rgba(14,124,134,0)}50%{box-shadow:0 0 0 8px rgba(14,124,134,.08)}}
+/* dataset card */
+.dset{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:0 6px 6px 0;padding:14px 18px;margin:14px 0;font-size:14px}
+.dset p{margin:4px 0}
+.triage{background:var(--sigsoft);border:1px dashed var(--signal);border-radius:6px;padding:12px 18px;margin:14px 0;font-size:14.5px}
+.triage b{color:var(--signal)}
+.pillrow{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 4px}
+.pill{display:inline-flex;align-items:center;padding:7px 11px;border-radius:999px;background:var(--teal-soft);color:var(--teal);font-family:var(--mono);font-size:10px;letter-spacing:.08em;border:1px solid var(--line)}
 .pipe{display:grid;grid-template-columns:1fr 26px 1fr 26px 1fr;gap:0;align-items:stretch;margin:18px 0}
 .step{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px 18px}
 .step .tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--teal);display:block;margin-bottom:6px}
 .step h3{font-size:15.5px;margin:0 0 4px}
 .step p{font-size:13px;margin:0}
-.pipe .link{display:flex;align-items:center;justify-content:center;color:#B8C4CC}
-.gatecard{border:2px solid var(--signal);border-radius:6px;padding:18px 22px;background:#FDF6F6;margin:18px 0}
+.pipe .link{display:flex;align-items:center;justify-content:center;color:#7C8B96}
+.gatecard{border:2px solid var(--signal);border-radius:6px;padding:18px 22px;background:var(--sigsoft);margin:18px 0}
 .gatecard h3{color:var(--signal);font-family:var(--mono);font-size:12px;letter-spacing:.12em;margin:0 0 8px}
 .ganttwrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--card);margin:16px 0}
 .gantt{min-width:820px}
-.gheadrow{display:grid;grid-template-columns:260px repeat(12,1fr);border-bottom:1px solid var(--line);background:#F2F6F8}
+.gheadrow{display:grid;grid-template-columns:260px repeat(12,1fr);border-bottom:1px solid var(--line);background:var(--soft)}
 .ghead{font-family:var(--mono);font-size:10px;color:var(--slate);text-align:center;padding:8px 0}
 .ghead.lbl{text-align:left;padding-left:14px}
-.grow{display:grid;grid-template-columns:260px 1fr;border-bottom:1px solid #EDF1F4;min-height:42px}
+.grow{display:grid;grid-template-columns:260px 1fr;border-bottom:1px solid var(--soft2);min-height:42px}
 .grow:last-child{border-bottom:none}
-.gcell{display:flex;align-items:center;gap:7px;font-size:12.5px;padding:7px 12px;border-right:1px solid #F0F4F6}
+.gcell{display:flex;align-items:center;gap:7px;font-size:12.5px;padding:7px 12px;border-right:1px solid var(--soft3)}
 .gcell .chip{font-size:9px;padding:2px 5px}
-.track{position:relative;background:repeating-linear-gradient(to right,#fff 0,#fff calc(100%/12 - 1px),#F0F4F6 calc(100%/12 - 1px),#F0F4F6 calc(100%/12))}
+.track{position:relative;background:var(--card);border-right:1px solid var(--soft3)}
 .bar{position:absolute;top:50%;transform:translateY(-50%);height:14px;border-radius:3px;margin:0 2px}
-.bar.you{background:var(--teal)}.bar.pi{background:var(--navy)}.bar.joint{background:#fff;border:1.5px solid var(--signal)}
+.bar.you{background:var(--teal)}.bar.pi{background:var(--navy)}.bar.joint{background:var(--card);border:1.5px solid var(--signal)}
 .gate{position:absolute;top:50%;width:12px;height:12px;background:var(--signal);transform:translate(-50%,-50%) rotate(45deg);border-radius:2px}
 .legend{display:flex;gap:20px;margin:12px 0;flex-wrap:wrap}
 .legend span{font-family:var(--mono);font-size:11px;color:var(--slate);display:flex;align-items:center;gap:7px}
 .sw{width:15px;height:11px;border-radius:2px;display:inline-block}
-.sw.you{background:var(--teal)}.sw.pi{background:var(--navy)}.sw.joint{background:#fff;border:1.5px solid var(--signal)}
+.sw.you{background:var(--teal)}.sw.pi{background:var(--navy)}.sw.joint{background:var(--card);border:1.5px solid var(--signal)}
 .gate-leg{width:10px;height:10px;background:var(--signal);transform:rotate(45deg);display:inline-block}
 .milestones li::marker{font-family:var(--mono);color:var(--signal);font-size:12px}
 .reflist{font-size:13px}
 .reflist li{margin:8px 0;word-break:break-all}
-.src{font-family:var(--mono);font-size:11px;color:#7C8B96}
+.src{font-family:var(--mono);font-size:11px;color:#7C8B96;word-break:break-all}
+.paper{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:12px 16px;margin:10px 0;font-size:14px}
+.paper .pn{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--teal);display:block;margin-bottom:3px}
+.paper i{color:var(--ink)}
 footer{margin:50px 0 60px;border-top:1px solid var(--line);padding-top:18px}
 footer p{font-family:var(--mono);font-size:11.5px}
-/* ---- sidebar ---- */
-.kitsb{position:fixed;left:0;top:0;bottom:0;width:250px;background:#F4F7F9;border-right:1px solid var(--line);padding:26px 0;overflow-y:auto;z-index:60}
-.kitsb .klab{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--slate);padding:0 22px;margin-bottom:14px}
-.kitsb a,.kitsb button{display:block;width:100%;text-align:left;padding:11px 22px;font-size:13.5px;color:var(--slate);text-decoration:none;border-left:3px solid transparent;line-height:1.4;background:none;border-top:0;border-right:0;border-bottom:0;cursor:pointer;font-family:var(--sans)}
-.kitsb a.cur{color:var(--ink);border-left-color:var(--teal);background:var(--teal-soft)}
-.kitsb a:hover,.kitsb button:hover{color:var(--teal)}
-.kitsb .morelab{margin-top:20px;border-top:1px solid var(--line);padding-top:18px}
-.kitsb button.plus::before{content:"+ ";color:var(--teal);font-family:var(--mono)}
-.kitsb button.plus.act{color:var(--ink);border-left-color:var(--teal);background:var(--teal-soft)}
-.kitsb button.plus.act::before{content:"\2212  "}
-@media(min-width:1100px){body{padding-left:250px}}
-@media(max-width:1099px){.kitsb{display:none}}
-@media print{.kitsb,.pback,.panel,.mobmore{display:none!important}body{padding-left:0}}
-/* ---- mobile: footer expandables + bottom arrow ---- */
+/* mobile: footer expandables + bottom arrow */
 .fmore{display:none;margin-top:34px}
 .fmore .fmlab{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--slate);margin-bottom:10px}
 .fmore .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.fmore button{font-family:var(--mono);font-size:12px;letter-spacing:.04em;padding:14px 12px;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:6px;background:#fff;color:var(--ink);cursor:pointer;text-align:left}
+.fmore button{font-family:var(--mono);font-size:12px;letter-spacing:.04em;padding:14px 12px;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:6px;background:var(--card);color:var(--ink);cursor:pointer;text-align:left}
 .fmore button:hover{border-color:var(--teal);color:var(--teal)}
+.fmore button.act{color:var(--teal);border-color:var(--teal)}
 .nextmob{display:none;margin-top:14px}
-@media(max-width:1099px){
-  .fmore{display:block}
-  .nextmob{display:block}
-}
+@media(max-width:1099px){.fmore{display:block}.nextmob{display:block}}
 .nextmob a{display:flex;justify-content:space-between;align-items:center;background:var(--navy);color:#fff;text-decoration:none;border-radius:8px;padding:16px 20px;font-size:14.5px;font-weight:500}
 .nextmob a small{display:block;font-weight:400;font-size:11.5px;opacity:.75;font-family:var(--mono);letter-spacing:.08em}
 .nextmob .ar{font-size:22px}
-@media(max-width:640px){
-  .panel{position:fixed;inset:0;width:100%;height:100%;padding:8px 16px 40px;box-shadow:none;right:0}
-  .panel.on{right:0}
-  .pmhead{margin:0 -16px 12px;padding:12px 16px;position:sticky;top:0}
-  .panel h2{font-size:20px;margin:16px 0 8px}
-  .panel table{font-size:13.5px}
-  .panel td,.panel th{padding:8px 9px}
-  .fmore .fgrid{grid-template-columns:1fr}
-}
-/* ---- overlay panel ---- */
+@media(max-width:640px){.fmore .fgrid{grid-template-columns:1fr}}
+.ovsrc{display:none}
+/* overlay panel: desktop slide-in, phone pop-up window */
 .pback{position:fixed;inset:0;background:rgba(16,34,46,.45);opacity:0;pointer-events:none;transition:opacity .2s;z-index:90}
 .pback.on{opacity:1;pointer-events:auto}
-.panel{position:fixed;top:0;right:-660px;bottom:0;width:min(620px,94vw);background:var(--paper);box-shadow:-12px 0 40px rgba(16,34,46,.18);transition:right .25s;z-index:95;overflow-y:auto;padding:38px 36px 60px}
+.panel{position:fixed;top:0;right:-660px;bottom:0;width:min(620px,94vw);background:var(--paper);box-shadow:-12px 0 40px rgba(16,34,46,.18);transition:right .25s;z-index:95;overflow-y:auto;padding:30px 34px 56px}
 .panel.on{right:0}
 .panel h2{margin-top:0;border-top:none;padding-top:0}
-.pmhead{position:sticky;top:0;z-index:5;display:flex;justify-content:flex-end;padding:10px 0;margin:-26px -36px 10px;background:var(--paper);border-bottom:1px solid var(--line)}
-.pclose{background:#fff;border:1px solid var(--line);border-radius:8px;width:42px;height:42px;font-size:24px;line-height:1;color:var(--ink);cursor:pointer;margin-right:18px}
+.pmhead{position:sticky;top:0;z-index:5;display:flex;justify-content:flex-end;padding:10px 0 12px;margin:-16px -34px 14px;background:var(--paper);border-bottom:1px solid var(--line)}
+.pclose{background:var(--card);border:1px solid var(--line);border-radius:8px;width:44px;height:44px;font-size:24px;line-height:1;color:var(--ink);cursor:pointer;margin-right:22px;display:flex;align-items:center;justify-content:center}
 .panel .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.panel .ganttwrap{max-width:100%}
-.ovsrc{display:none}
+@media(max-width:640px){
+  .panel{left:12px;right:12px;top:4vh;bottom:4vh;width:auto;right:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 18px 60px rgba(0,0,0,.35);padding:18px 16px 30px}
+  .pmhead{margin:-10px -16px 12px;padding:8px 12px}
+  .pclose{margin-right:0}
+  .panel h2{font-size:20px}
+  .panel table{font-size:13px}
+  .panel td,.panel th{padding:8px 9px}
+}
 </style>
 </head>
 <body>
+<nav class="nav">
+  <div class="nav-brand">
+    <img class="nav-logo" src="KP_Singh.jpg" alt="K.P. Singh"/>
+    <div>
+      <div class="nav-name">K.P. Singh</div>
+      <div class="nav-sub">SGT University · Research Program OAI-2026</div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <button class="theme-toggle" id="btnThemeToggle" type="button" aria-label="Toggle dark/light theme">🌙</button>
+    <a class="nav-cta" href="https://kpsingh.in" target="_blank">kpsingh.in ↗</a>
+  </div>
+</nav>
+
 <nav class="kitsb">
   <div class="klab">OAI-2026 · RESEARCH KIT</div>
   <a href="index.html" class="cur">01 · Proposal — home</a>
@@ -137,113 +189,158 @@ footer p{font-family:var(--mono);font-size:11.5px}
   <a href="demo-explainer-handout.html">05 · Demo — poster</a>
   <a href="panel-selection-demo.html">06 · Demo — full</a>
   <div class="klab morelab">MORE — CLICK TO EXPAND</div>
-  <button class="plus" onclick="togglePanel('ov-timeline',this)">Timeline &amp; milestones</button>
-  <button class="plus" onclick="togglePanel('ov-roles',this)">Roles &amp; responsibilities</button>
-  <button class="plus" onclick="togglePanel('ov-qr',this)">Quick reference</button>
-  <button class="plus" onclick="togglePanel('ov-risks',this)">Risks &amp; mitigation</button>
-  <button class="plus" onclick="togglePanel('ov-refs',this)">References</button>
+  <button type="button" data-panel="ov-timeline">Timeline</button>
+  <button type="button" data-panel="ov-roles">Roles &amp; responsibilities</button>
+  <button type="button" data-panel="ov-risks">Risks &amp; mitigation</button>
+  <button type="button" data-panel="ov-refs">References</button>
 </nav>
-
 
 <div class="doc">
 <header class="meta">
   <div class="reqlabel">
-    <span>PROPOSAL <b>OAI-2026</b> · RESEARCH PROGRAM</span><span>STATUS: <b>DRAFT — FOR DISCUSSION</b></span><span>DATE: <b>SEPTEMBER 2026</b></span><span>DURATION: <b>12 MONTHS · 2 PROJECTS</b></span>
+    <span>PROPOSAL <b>OAI-2026</b> · RESEARCH PROGRAM</span><span>STATUS: <b>DRAFT — FOR DISCUSSION</b></span><span>DATE: <b>SEPTEMBER 2026</b></span>
   </div>
   <h1>AI-Driven Oral Health: a two-tier research program — <em>oral–systemic risk prediction · a salivary gene panel for cancer screening</em></h1>
   <div class="rolebox">
-    <div class="pi"><span class="r">PRINCIPAL INVESTIGATOR (CLINICAL &amp; LAB LEAD)</span>Dr. Shalini Kapoor — Research Dean. Research direction, ethics, cohort &amp; wet-lab validation.</div>
-    <div class="copi"><span class="r">CO-PRINCIPAL INVESTIGATOR (COMPUTATIONAL LEAD)</span>Kamal Preet Singh — AI/ML Engineer &amp; Data Analyst. Data pipelines, modeling, validation.</div>
+    <div class="pi"><span class="r">PRINCIPAL INVESTIGATOR (CLINICAL &amp; LAB LEAD)</span>Dr. Shalini Kapoor — Research Dean. Research direction, ethics, cohort &amp; wet-lab validation, corresponding author.</div>
+    <div class="copi"><span class="r">CO-PRINCIPAL INVESTIGATOR (COMPUTATIONAL LEAD)</span>Kamal Preet Singh — AI/ML Engineer &amp; Data Analyst. Data pipelines, modeling, validation, first-author manuscripts.</div>
   </div>
 </header>
 
 <div class="abstract">
-  <p><b>Program summary.</b> A response to the Strategic Research Leadership Meeting's call — "connect ideas, create collaborations." Published dental-AI is abundant but rarely calibrated, externally validated, fairness-audited, or clinically translated — the field's own reviews document this gap. This program attacks it with two projects on one shared computational framework:</p>
-  <p><b>Tier 1</b> — reverse oral–systemic risk prediction on NHANES (fast joint paper, public data only);</p>
-  <p><b>Tier 2</b> — an AI-minimal salivary biomarker panel for oral cancer screening (TCGA → saliva → clinical validation in the collaborator's lab). Tier 1 builds the publication record while Tier 2 ramps; both run the same rigor spine: temporal validation, calibration, fairness audit, XAI.</p>
+  <p><b>Program summary.</b> A direct outcome of the Strategic Research Leadership Meeting's call — <b>"connect ideas, create collaborations."</b> Two projects on one shared computational framework: <b>Tier 1</b> — reverse oral–systemic risk prediction on NHANES (fast joint paper, public data only); <b>Tier 2</b> — an AI-minimal salivary biomarker panel for oral cancer screening (TCGA → saliva → clinical validation in the PI's lab). Tier 1 builds the publication record while Tier 2 ramps; both run the same rigor spine: temporal validation, calibration, fairness audit, XAI.</p>
 </div>
 
-<h2>1 · Why this program</h2>
-<p>Dental AI publications are growing rapidly, but 2025 reviews report poor calibration, low reproducibility and scarce external validation <span class="src">(PMC12286321; S0300571225003112)</span>; even implant-AI models are judged not ready for case selection <span class="src">(S2772559626002737)</span>, and fairness auditing remains exceptional rather than standard <span class="src">(JAMA Netw Open 2811316)</span>. Each project below closes those four gaps on a dataset where the question is genuinely askable — and the pair is chosen so that the first results arrive within months, on public data, before any laboratory commitment.</p>
-<p>Each tier's novelty case — prior work, its limitations, what we do differently, and the funding angle — sits inside its own section below. One-page visual handouts are in the left sidebar.</p>
-
-<h2>2 · Program architecture</h2>
-<div class="arch">
-  <div class="archstep"><span class="atag">TIER 1 · INPUT</span><b>NHANES 2009–2018</b><small>dental exam + blood results, same individuals</small></div>
-  <div class="alink">→</div>
-  <div class="archstep"><span class="atag">SHARED CORE · CO-PI</span><b>One rigor framework</b><small>harmonize → model → temporal validation · calibration · fairness · XAI</small></div>
-  <div class="alink">→</div>
-  <div class="archstep"><span class="atag">TIER 2 · INPUT</span><b>TCGA-HNSC + GEO saliva</b><small>~500 patients · 20,000+ genes · survival</small></div>
-  <div class="alink">→</div>
-  <div class="archstep out"><span class="atag">JOINT OUTPUTS</span><b>Papers · grant · clinical tools</b><small>chairside score · assay-ready panel spec</small></div>
+<h2>The gap</h2>
+<p>Dental AI publications are growing rapidly, but 2025 reviews report four recurring gaps <span class="src">[11, 12, 13, 14]</span>:</p>
+<div class="gapgrid">
+  <div class="gap"><span class="n">GAP 01</span><b>Models are rarely calibrated</b></div>
+  <div class="gap"><span class="n">GAP 02</span><b>External / temporal validation is missing</b></div>
+  <div class="gap"><span class="n">GAP 03</span><b>Fairness audits are rare</b></div>
+  <div class="gap"><span class="n">GAP 04</span><b>Clinical translation is almost nonexistent</b></div>
 </div>
+<p>The two research ideas below close these four gaps — with first results on public datasets, <b>before any laboratory experiment</b>.</p>
 
-<h2>3 · Tier 1 — Reverse oral–systemic risk prediction (fast joint paper)</h2>
-<p><b>Concept.</b> Existing work predicts periodontitis <i>from</i> systemic factors (2019 NHANES model — our baseline); clinical prototypes screen dental patients for diabetes with simple scores (Lalla 2011; JADA 2014; DDS score validated on NHANES 2009–2014). We upgrade the proven concept to modern ML: routine dental exam features flag <b>undiagnosed diabetes and cardiovascular risk</b> — a triage flag ("get a blood test"), never a diagnosis.</p>
-<ul>
-  <li><b>Data</b> — NHANES (free, public): ≈5,000–10,000 participants per 2-year cycle, each with BOTH a dental exam and blood results. Train 2009–2014, test 2015–2018.</li>
-  <li><b>Methods</b> — harmonization; logistic regression / random forest / gradient boosting; temporal validation; probability calibration; subgroup fairness audit (fairlearn); SHAP → distilled chairside score.</li>
-  <li><b>Benchmark</b> — head-to-head against the DDS / ADA screening scores and the 2019 model.</li>
-  <li><b>Outputs</b> — two papers (risk flagging; calibration + fairness audit), a chairside score specification, public code repository.</li>
+<h2>Project 1 — Reverse oral–systemic risk prediction</h2>
+<p><i>Make oral data carry clinical signal — earlier than today's tools allow.</i></p>
+<p><b>What prior work already showed.</b></p>
+<ul class="priorlist">
+  <li><b>2019 NHANES model [4]</b> — predicts <b>periodontitis from systemic factors</b>.</li>
+  <li><b>Lalla 2011 [1]</b> — unrecognized diabetes can be identified in a dental setting.</li>
+  <li><b>JADA 2014 [2]</b> — dentists can screen chairside with simple criteria.</li>
+  <li><b>DDS score [3]</b> — a national-data risk score exists on NHANES 2009–2014.</li>
 </ul>
+<div class="flowflip" aria-label="Existing direction and our flipped direction">
+  <div class="lane old">
+    <span class="lablane">EXISTING DIRECTION</span>
+    <div class="flowrow">
+      <div class="node sys">Diabetes / CVD</div>
+      <div class="arr">→</div>
+      <div class="node oral">Gum disease</div>
+    </div>
+  </div>
+  <div class="swap">WE FLIP THE ARROW</div>
+  <div class="lane new">
+    <span class="lablane">OUR APPROACH</span>
+    <div class="flowrow">
+      <div class="node oral">Routine dental exam</div>
+      <div class="arr">→</div>
+      <div class="node risk">Undiagnosed diabetes / CVD risk</div>
+    </div>
+  </div>
+</div>
+<div class="callout">
+  <p><b>Our approach.</b> Routine dental-exam features flag <b>undiagnosed diabetes and cardiovascular risk</b>.</p>
+</div>
+<div class="triage"><p><b>A triage flag — says "get a blood test", not "has diabetes".</b></p></div>
+<div class="dset">
+  <p><b>Data · NHANES (US CDC) — free, public CSVs.</b> ≈5,000–10,000 participants per 2-year cycle — each with <b>BOTH</b> a dental exam <b>and</b> blood results.</p>
+</div>
+<ul>
+  <li><b>Subgroup fairness audit</b> — gender · income · ethnicity</li>
+  <li><b>Temporal validation</b> — train on 2009–14 data, test on 2015–18 data</li>
+  <li><b>Probability calibration</b> — probabilities that mean what they say</li>
+  <li><b>SHAP</b> — to produce a calibrated chairside score</li>
+</ul>
+<p><b>Baselines:</b> the DDS score (NHANES 2009–14) [3] and the 2019 model [4].</p>
 
-<h3>Novelty vs prior work — Tier 1 · baselines, not competitors</h3>
+<h3>Literature review — Project 1</h3>
 <table>
-  <thead><tr><th style="width:23%">Prior work</th><th style="width:19%">What it lacks</th><th style="width:21%">What we do differently</th><th style="width:17%">Where the novelty comes from</th><th style="width:20%">Funding angle</th></tr></thead>
+  <thead><tr><th style="width:24%">Prior work</th><th style="width:20%">Work done</th><th style="width:20%">What it lacks</th><th style="width:19%">Our approach</th><th style="width:17%">Novelty</th></tr></thead>
   <tbody>
-    <tr><td>Lalla et al., <i>J Dent Res</i> (2011)<br><small style="font-weight:400;color:var(--slate)">Unrecognized diabetes identifiable in a dental setting</small></td><td>Single-center; a simple rule, not a probability</td><td>National-scale ML, temporally validated on later NHANES cycles</td><td>Scale + rigor — first temporally validated version of a proven concept</td><td>Dental-setting screening is a named funder theme; national evidence is the missing piece</td></tr>
-    <tr><td>JADA screening guideline (2014)<br><small style="font-weight:400;color:var(--slate)">Dentists can screen chairside</small></td><td>Checklist — not probabilistic; no risk stratification</td><td>A calibrated probability score a dentist can act on</td><td>Calibration — probabilities that mean what they say</td><td>Implementation / quality-improvement grants in dental practice</td></tr>
-    <tr><td>DDS risk score — NHANES 2009–2014 (2025)<br><small style="font-weight:400;color:var(--slate)">Simple score validated on national data</small></td><td>No ML; no calibration or fairness reporting</td><td>Head-to-head ML benchmark + the full rigor package</td><td>Rigor as the result — the audit trail is itself the contribution</td><td>Risk-model calls increasingly demand calibration + fairness; we ship both as standard</td></tr>
-    <tr><td>NHANES ML model (2019)<br><small style="font-weight:400;color:var(--slate)">ML works — but predicts gum disease <i>from</i> systemic factors</small></td><td>Wrong direction; no validation or fairness layer</td><td>Arrow reversal: exam features in, undiagnosed risk out</td><td>THE FLIP — the exam dentists already do becomes the signal</td><td>Zero-cost public-data pilot — ideal seed-grant scope, fast first paper</td></tr>
-    <tr><td>George et al., <i>J Contemp Clin Pract</i> (2025)<br><small style="font-weight:400;color:var(--slate)">ANN on five ELISA salivary biomarkers — diagnosed cases, n = 300, AUC 0.95</small></td><td>Needs saliva + lab assays; already-diagnosed patients; authors themselves call for external validation</td><td>Exam-only triage of <i>undiagnosed</i> adults at national scale — no assay</td><td>Deployability + the undiagnosed target — rigor spine built in</td><td>Proves saliva-AI-systemic is fundable in 2025; we add the rigor arm funders now ask for</td></tr>
+    <tr><td>Lalla et al., <i>J Dent Res</i> (2011) [1]</td><td>Unrecognized diabetes identifiable in a dental setting</td><td>One clinic; a simple rule — not a probability</td><td>National-scale ML on NHANES, validated on later cycles</td><td>Scale + validation on a proven idea</td></tr>
+    <tr><td>JADA screening guideline (2014) [2]</td><td>Dentists can screen chairside with a checklist</td><td>Yes/no only — no risk levels</td><td>A calibrated probability score</td><td>Probabilities, not just flags</td></tr>
+    <tr><td>DDS risk score — NHANES 2009–2014 (2025) [3]</td><td>A simple score validated on national data</td><td>No ML; no calibration or fairness reporting</td><td>ML benchmark + the full rigor package</td><td>Rigor as the result</td></tr>
+    <tr><td>NHANES ML model (2019) [4]</td><td>ML works — predicts gum disease <i>from</i> systemic factors</td><td>The arrow was never flipped</td><td>Exam features in → undiagnosed risk out</td><td>The flip</td></tr>
+    <tr><td>George et al., <i>J Contemp Clin Pract</i> (2025) [5]</td><td>ANN on five salivary biomarkers detects diabetes / CVD / CKD (n = 300, AUC 0.95)</td><td>Needs lab assays; already-diagnosed patients; authors ask for external validation themselves</td><td>Exam-only triage of <i>undiagnosed</i> people, national scale — no assay</td><td>No lab needed + the undiagnosed target</td></tr>
   </tbody>
 </table>
 
-<h3>Research questions — Tier 1</h3>
+<h3>Research questions — Project 1</h3>
 <ol>
   <li><b>RQ1.</b> Can oral-exam-only features (pocket depths, missing teeth, bleeding) flag undiagnosed diabetes and cardiovascular risk in adults?</li>
-  <li><b>RQ2.</b> Are such models calibrated (probabilities that mean what they say), temporally stable (validated on a later survey cycle), and demographically fair (subgroup gaps named, not hidden)?</li>
-  <li><b>RQ3.</b> Can SHAP-derived explanatory factors be distilled into a chairside risk score — and does it outperform the published DDS / ADA screening scores?</li>
+  <li><b>RQ2.</b> Are such models calibrated, temporally stable, and demographically fair?</li>
+  <li><b>RQ3.</b> Can SHAP-derived explanatory factors be distilled into a chairside risk score — and does it outperform the published screening scores [2, 3]?</li>
 </ol>
 
-<h2>4 · Tier 2 — AI-minimal salivary biomarker panel (flagship)</h2>
-<p><b>Concept.</b> Salivary microRNAs detect oral cancer (confirmed by UCLA dental researchers), and an AI classifier exists on the salivary metatranscriptome — but it is a black-box, whole-transcriptome model on a small sample. We build the deployment step: a <b>minimal, survival-linked, tissue-grounded panel</b>, cross-validated from tumor tissue to saliva.</p>
+<h3>Expected outcomes — Project 1</h3>
+<div class="paper"><span class="pn">PAPER 1 · RISK FLAGGING</span><i>"Undiagnosed diabetes and cardiovascular risk flagged by routine dental-examination data: a temporally validated model on NHANES 2009–2018."</i> — covers: data pipeline, modeling, temporal validation.</div>
+<div class="paper"><span class="pn">PAPER 2 · CALIBRATION + FAIRNESS</span><i>"Calibrated and demographically fair chairside screening: a SHAP-distilled oral risk score benchmarked against published criteria."</i> — covers: calibration, fairness audit, chairside score, head-to-head benchmarks [2, 3, 4].</div>
+
+<h2>Project 2 — AI-minimal salivary biomarker panel for non-invasive oral cancer screening</h2>
+<p><i>The flagship — closest to the PI's biomarker work.</i></p>
+<p><b>What prior work already showed.</b></p>
+<ul class="priorlist">
+  <li><b>UCLA [6]</b> — salivary microRNAs can detect oral cancer.</li>
+  <li><b>npj 2021 [7]</b> — AI can classify disease from the full salivary transcriptome.</li>
+  <li><b>Ciringione 2025 [10]</b> — a 4-miRNA panel can reach AUC 0.959.</li>
+</ul>
+<div class="callout">
+  <p><b>Our approach.</b> Build a <b>minimal, cheap-to-assay, tissue-derived, survival-linked</b> panel — then cross-validate it from tumor tissue to saliva before any laboratory spend.</p>
+</div>
+<div class="pillrow">
+  <span class="pill">MINIMAL</span>
+  <span class="pill">TISSUE-DERIVED</span>
+  <span class="pill">SURVIVAL-LINKED</span>
+  <span class="pill">CHEAP TO ASSAY</span>
+</div>
 <div class="pipe">
-  <div class="step"><span class="tag">PHASE 1 · PUBLIC · <span class="chip chip-you">CO-PI</span></span><h3>XAI feature selection</h3><p>TCGA-HNSC: elastic-net + gradient boosting, SHAP stability selection → candidate panel.</p></div>
+  <div class="step"><span class="tag">PHASE 1 · PUBLIC · <span class="chip chip-you">CO-PI</span></span><h3>TCGA-HNSC → XAI feature selection</h3><p>Elastic net + SHAP stability → candidate panel.</p></div>
   <div class="link">→</div>
-  <div class="step"><span class="tag">PHASE 2 · PUBLIC · <span class="chip chip-you">CO-PI</span></span><h3>Salivary detectability screen</h3><p>GEO saliva datasets: are the candidates measurable and differential?</p></div>
+  <div class="step"><span class="tag">PHASE 2 · PUBLIC · <span class="chip chip-you">CO-PI</span></span><h3>Salivary detectability screen</h3><p>GEO saliva datasets — are the candidates measurable and differential?</p></div>
   <div class="link" title="GO / NO-GO"><span style="display:inline-block;width:12px;height:12px;background:var(--signal);transform:rotate(45deg);border-radius:2px"></span></div>
-  <div class="step"><span class="tag">PHASE 3 · CLINICAL · <span class="chip chip-pi">PI</span> <span class="chip chip-you">CO-PI</span></span><h3>Clinical validation</h3><p>Ethics → anonymized saliva → RNA extraction → qPCR → blinded classification.</p></div>
+  <div class="step"><span class="tag">PHASE 3 · CLINICAL · <span class="chip chip-pi">PI</span> <span class="chip chip-you">CO-PI</span></span><h3>Clinical validation</h3><p>Anonymized saliva → RNA extraction → qPCR → blinded classification.</p></div>
 </div>
 <div class="gatecard">
-  <h3>GO / NO-GO — RISK BOUNDED BY DESIGN</h3>
-  <p>Phase 2 costs 2–3 weeks and zero lab budget. Worst case — "no salivary transfer" — is known in month 3, before any sample or ethics investment; that negative result is itself grant-worthy de-risking data. Tissue biology and salivary detectability must BOTH agree before a gene enters the panel. Pivot options: blood-based detection; panel-as-report. A NO-GO retires the saliva-panel approach — not the program: Tier 1 continues untouched, and the de-risking result is publishable.</p>
+  <h3>WORST-CASE SCENARIO — BOUNDED BY DESIGN</h3>
+  <p>"No salivary transfer" is known by <b>month 3</b> — before any sample or ethics investment. Tissue biology and salivary detectability must <b>BOTH agree</b> before a gene enters the panel. On failure: the saliva-panel approach retires — and the de-risking result is <b>publishable</b>. Phase 2 costs 2–3 weeks and zero lab budget.</p>
 </div>
-<ul>
-  <li><b>Outputs</b> — two papers (in-silico panel + detectability; clinical validation), an assay-ready panel specification, grant-ready preliminary data.</li>
-  <li><b>Benchmark</b> — head-to-head on identical data: minimal panel vs whole-transcriptome baseline, and vs the published four-miRNA panel (Ciringione 2025, AUC 0.959).</li>
-</ul>
+<p><b>Baselines:</b> the UCLA miRNA confirmation [6], the npj 2021 classifier [7], and the published four-miRNA panel [10].</p>
 
-<h3>Novelty vs prior work — Tier 2 · baselines, not competitors</h3>
+<h3>Literature review — Project 2</h3>
 <table>
-  <thead><tr><th style="width:23%">Prior work</th><th style="width:19%">What it lacks</th><th style="width:21%">What we do differently</th><th style="width:17%">Where the novelty comes from</th><th style="width:20%">Funding angle</th></tr></thead>
+  <thead><tr><th style="width:24%">Prior work</th><th style="width:20%">Work done</th><th style="width:20%">What it lacks</th><th style="width:19%">Our approach</th><th style="width:17%">Novelty</th></tr></thead>
   <tbody>
-    <tr><td>UCLA salivary miRNA confirmation<br><small style="font-weight:400;color:var(--slate)">Salivary miRNAs detect oral cancer</small></td><td>No minimal panel; no ML selection</td><td>XAI-selected 5–10 target panel, survival-linked</td><td>From signal to deployable panel — minimalism</td><td>Biomarker-validation grants — the classic diagnostic-pipeline story</td></tr>
-    <tr><td>npj metatranscriptome classifier (2021)<br><small style="font-weight:400;color:var(--slate)">AI classifies disease from the full saliva transcriptome</small></td><td>Black box; thousands of targets; small sample; single dataset</td><td>Minimal interpretable panel, benchmarked on the same GEO data</td><td>Interpretability + a head-to-head benchmark</td><td>AI-health reviewers now demand explainability — ours is built in, not bolted on</td></tr>
-    <tr><td>miRNA + ML diagnostics (2024)<br><small style="font-weight:400;color:var(--slate)">Early ML use on miRNA features</small></td><td>Nascent; no tissue grounding; no survival link</td><td>Tissue-derived, survival-linked candidates</td><td>The tissue → saliva bridge</td><td>Translational-pipeline calls (discovery → validation)</td></tr>
-    <tr><td>Wang et al., <i>Front Microbiol</i> (2025)<br><small style="font-weight:400;color:var(--slate)">Cross-cohort saliva-microbiome ML, leave-one-cohort-out, n = 665</small></td><td>Case/control discrimination only — no minimal panel, no tissue grounding</td><td>Our validation-design template — and the cross-cohort benchmark the panel is tested on</td><td>Cross-cohort validation as the design, not an afterthought</td><td>Validation-heavy designs score better in translational calls — our protocol matches the new standard</td></tr>
-    <tr><td>Ciringione et al., <i>IJMS</i> (2025)<br><small style="font-weight:400;color:var(--slate)">Four-miRNA salivary panel — AUC 0.959, n = 60, qRT-PCR</small></td><td>Small, single-center; not tissue-derived or survival-linked</td><td>A tissue-grounded, survival-linked panel to match or beat it head-to-head</td><td>Grounding — every gene earns its place via tumor biology + survival</td><td>Small panels = low-cost assays — what translational calls and industry partners fund</td></tr>
+    <tr><td>UCLA salivary miRNA confirmation [6]</td><td>Salivary miRNAs detect oral cancer — the signal is real</td><td>No panel; no AI selection</td><td>XAI-selected 5–10 target panel</td><td>From signal to a deployable panel</td></tr>
+    <tr><td>npj metatranscriptome classifier (2021) [7]</td><td>AI classifies disease from the full saliva transcriptome</td><td>Black box; thousands of targets; small sample</td><td>Minimal interpretable panel, benchmarked on the same GEO data</td><td>Interpretability by design</td></tr>
+    <tr><td>miRNA + ML diagnostics (2024) [8]</td><td>Early ML use on salivary miRNA features</td><td>Nascent; no tumor grounding; no survival link</td><td>Tumor-derived, survival-linked candidates</td><td>The tissue → saliva bridge</td></tr>
+    <tr><td>Wang et al., <i>Front Microbiol</i> (2025) [9]</td><td>Cross-cohort saliva-microbiome ML — leave-one-cohort-out, n = 665</td><td>Case/control only — no minimal panel</td><td>Their design becomes our validation template + benchmark</td><td>Cross-cohort validation as the design</td></tr>
+    <tr><td>Ciringione et al., <i>IJMS</i> (2025) [10]</td><td>Four-miRNA salivary panel — AUC 0.959 (n = 60)</td><td>Small, single-center; not tissue-derived or survival-linked</td><td>A tumor-grounded, survival-linked panel — head-to-head vs theirs</td><td>Every gene earns its place via tumor evidence</td></tr>
   </tbody>
 </table>
 
-<h3>Research questions — Tier 2</h3>
+<h3>Research questions — Project 2</h3>
 <ol start="4">
   <li><b>RQ4.</b> Can XAI-driven feature selection on TCGA-HNSC produce a minimal candidate panel that is survival-linked and biologically interpretable?</li>
   <li><b>RQ5.</b> Which panel candidates are detectable in saliva — measurable and differentially expressed in public GEO saliva datasets?</li>
-  <li><b>RQ6.</b> Does the final panel discriminate OSCC from controls in the collaborator's clinical saliva samples — matching or beating the published four-miRNA panel head-to-head?</li>
+  <li><b>RQ6.</b> Does the final panel discriminate OSCC from controls in clinical saliva samples — matching or beating the published four-miRNA panel [10]?</li>
 </ol>
 
-<h3>The two tiers — side by side</h3>
+<h3>Expected outcomes — Project 2</h3>
+<div class="paper"><span class="pn">PAPER 3 · DISCOVERY + SCREEN</span><i>"A tumor-grounded, survival-linked minimal salivary gene panel for oral cancer screening: XAI discovery and public-data detectability."</i> — covers: TCGA selection, GEO screen, the GO/NO-GO gate.</div>
+<div class="paper"><span class="pn">PAPER 4 · CLINICAL VALIDATION</span><i>"Clinical validation of a minimal salivary panel for oral cancer detection: a blinded case–control qPCR study."</i> — covers: cohort, assay, blinded classification, head-to-head benchmark [10].</div>
+
+<h3>The two projects — side by side</h3>
 <table>
   <thead><tr><th style="width:22%">Dimension</th><th style="width:39%">Tier 1 — Oral → systemic</th><th style="width:39%">Tier 2 — Tissue → saliva</th></tr></thead>
   <tbody>
@@ -258,36 +355,31 @@ footer p{font-family:var(--mono);font-size:11.5px}
     <tr><td>First output</td><td>Paper 1 by ~month 8 (draft by month 6)</td><td>In-silico paper + assay spec; clinical paper by month 11–12</td></tr>
   </tbody>
 </table>
-<p><b>In one line: different data, different models — one shared framework, one governance structure, one grant story.</b></p>
 
-<h2>5 · Bandwidth &amp; commitment</h2>
+<h2>Phased &amp; public-data-first</h2>
 <div class="callout">
-  <p>The program is <b>phased and public-data-first: </p>
-  <p></b> Tier 1 requires only a laptop and open datasets; </p>
-  <p>Tier 2's laboratory demands activate <b>only after</b> the month-3 GO/NO-GO gate. Nothing in this proposal requires laboratory expenditure before month 3 — and the first joint manuscript lands within six months regardless of the gate's outcome.</p>
+  <p>The program is <b>phased and public-data-first</b>. Tier 1 asks for open datasets and the PI's clinical validation — nothing else. Tier 2's laboratory demands activate <b>only after month 3</b>. Nothing in this proposal requires laboratory expenditure before month 3 — and the first joint manuscript lands within six months regardless of the gate's outcome.</p>
+</div>
+
+<footer>
+  <p>Proposal OAI-2026 · Research program · Draft for discussion · Prepared by Kamal Preet Singh, Co-PI candidate · September 2026 · Contact: [email placeholder]</p>
+</footer>
 </div>
 
 <div class="fmore">
   <div class="fmlab">MORE — CLICK TO EXPAND</div>
   <div class="fgrid">
-    <button onclick="togglePanel('ov-timeline',this)">+ Timeline &amp; milestones</button>
-    <button onclick="togglePanel('ov-roles',this)">+ Roles &amp; responsibilities</button>
-    <button onclick="togglePanel('ov-qr',this)">+ Quick reference</button>
-    <button onclick="togglePanel('ov-risks',this)">+ Risks &amp; mitigation</button>
-    <button onclick="togglePanel('ov-refs',this)">+ References</button>
+    <button type="button" data-panel="ov-timeline">+ Timeline</button>
+    <button type="button" data-panel="ov-roles">+ Roles &amp; responsibilities</button>
+    <button type="button" data-panel="ov-risks">+ Risks &amp; mitigation</button>
+    <button type="button" data-panel="ov-refs">+ References</button>
   </div>
-</div>
-
-<footer>
-  <p>Proposal OAI-2026 · Research program · Draft for discussion · Prepared by Kamal Preet Singh, Co-PI candidate · September 2026 · Contact: 8221002099</p>
-</footer>
 </div>
 
 <div class="nextmob">
   <a href="tier1-handout.html"><span><small>NEXT PAGE · 02</small>Tier 1 — one-pager</span><span class="ar">→</span></a>
 </div>
 
-<!-- overlay sources -->
 <div class="ovsrc" id="ov-timeline">
   <h2>Timeline — 12 months, both tiers</h2>
   <div class="legend">
@@ -336,20 +428,6 @@ footer p{font-family:var(--mono);font-size:11.5px}
   <p><span class="chip chip-joint">JOINT</span>&nbsp; Monthly progress reviews · authorship &amp; IP agreement upfront · GO/NO-GO decision at month 3 · grant writing (e.g., ICMR / SERB-ANRF).</p>
 </div>
 
-<div class="ovsrc" id="ov-qr">
-  <h2>Quick reference</h2>
-  <table>
-    <thead><tr><th style="width:34%">Question</th><th style="width:66%">Short answer</th></tr></thead>
-    <tbody>
-      <tr><td>Can we start with just one project?</td><td>Yes — Tier 1 active immediately (public data, no lab); Tier 2 as a phase-gated option after its 3-week screen. Nothing is lost.</td></tr>
-      <tr><td>What if the month-3 gate says NO-GO?</td><td>The saliva-panel approach retires — not the program. Tier 1 continues; the de-risking result is publishable.</td></tr>
-      <tr><td>Prior work exists — why this?</td><td>Baselines, not competitors — every model here is benchmarked head-to-head against them. The missing step is rigor + the minimal deployable panel.</td></tr>
-      <tr><td>What exactly would you need from me?</td><td>PI leadership: outcome definitions, clinical interpretation. Tier 2 (post-gate only): ethics, samples, qPCR. Authorship agreed upfront.</td></tr>
-      <tr><td>Is NHANES adequate for clinical claims?</td><td>National-scale, standardized, both endpoints in one record — the only dataset where this question is askable. Triage flags, never diagnoses.</td></tr>
-    </tbody>
-  </table>
-</div>
-
 <div class="ovsrc" id="ov-risks">
   <h2>Risks &amp; mitigation</h2>
   <table>
@@ -357,17 +435,27 @@ footer p{font-family:var(--mono);font-size:11.5px}
     <tr><td>Modest predictive signal (Tier 1)</td><td>The contribution is the rigor package (calibration + fairness + translation) plus head-to-head benchmarks — not headline accuracy.</td></tr>
     <tr><td>Variable drift across NHANES cycles</td><td>Harmonization phase first; documented mapping tables in the code repository.</td></tr>
     <tr><td>Small clinical cohort / qPCR batch effects</td><td>Power calculation and pre-registered analysis plan before collection; normalization protocol fixed with the PI.</td></tr>
-    <tr><td>Bandwidth across parallel projects</td><td>Phased program design; separate data tracks; gate-bounded laboratory spend (see Bandwidth).</td></tr>
+    <tr><td>Bandwidth across parallel projects</td><td>Phased program design; separate data tracks; gate-bounded laboratory spend.</td></tr>
   </table>
 </div>
 
 <div class="ovsrc" id="ov-refs">
   <h2>References</h2>
   <ol class="reflist">
-    <li><b>Field critique</b> — Dental ML scoping review (2025): pmc.ncbi.nlm.nih.gov/articles/PMC12286321 · Evaluating dental AI papers (2025): sciencedirect.com/science/article/pii/S0300571225003112 · AI implant prediction — not ready for case selection: sciencedirect.com/science/article/pii/S2772559626002737 · Fairness of ML in dental care (JAMA Netw Open, 2023): jamanetwork.com/journals/jamanetworkopen/fullarticle/2811316</li>
-    <li><b>Tier 1 prior work</b> — NHANES-based periodontitis prediction (2019): pmc.ncbi.nlm.nih.gov/articles/PMC7050186 · Lalla et al., dental-setting diabetes identification (J Dent Res, 2011): journals.sagepub.com/doi/10.1177/0022034511407069 · DDS risk score validation — NHANES 2009–2014 (2025): onlinelibrary.wiley.com/doi/10.1111/jcpe.70037 · George et al. (2025): jccpractice.com/article/development-of-an-ai-driven-diagnostic-model-using-salivary-biomarkers-for-early-detection-of-systemic-diseases-622</li>
-    <li><b>Tier 2 biomarker literature</b> — Li et al., salivary transcriptome diagnostics (Clin Cancer Res, 2004): pubmed.ncbi.nlm.nih.gov/15623624 · UCLA salivary microRNA confirmation: uclahealth.org/news/release/dental-researchers-confirm-micrornas-as-biomarkers-for-oral-cancer-detection · Salivary metatranscriptome AI classifier (npj Syst Biol Appl, 2021): nature.com/articles/s41525-021-00257-x · Ciringione et al., four-miRNA panel (IJMS, 2025): mdpi.com/1422-0067/26/23/11373 · Wang et al., cross-cohort saliva-microbiome ML (Front Microbiol, 2025): frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1692186/full</li>
-    <li><b>Data resources</b> — NHANES: wwwn.cdc.gov/Nchs/Data/Nhanes · TCGA-HNSC: portal.gdc.cancer.gov · GEO: ncbi.nlm.nih.gov/geo</li>
+    <li>[1] Lalla E, et al. Unrecognized diabetes identified in a dental setting. <i>J Dent Res</i> 2011 — journals.sagepub.com/doi/10.1177/0022034511407069</li>
+    <li>[2] JADA screening guideline (2014) — diabetes screening in dental settings.</li>
+    <li>[3] DDS risk score validation, NHANES 2009–2014 (2025) — onlinelibrary.wiley.com/doi/10.1111/jcpe.70037</li>
+    <li>[4] NHANES-based periodontitis prediction model (2019) — pmc.ncbi.nlm.nih.gov/articles/PMC7050186</li>
+    <li>[5] George B, et al. AI-driven diagnostic model using salivary biomarkers for early detection of systemic diseases. <i>J Contemp Clin Pract</i> 2025;11(4):701-5 — jccpractice.com/article/development-of-an-ai-driven-diagnostic-model-using-salivary-biomarkers-for-early-detection-of-systemic-diseases-622</li>
+    <li>[6] UCLA — dental researchers confirm microRNAs as biomarkers for oral cancer detection — uclahealth.org/news/release/dental-researchers-confirm-micrornas-as-biomarkers-for-oral-cancer-detection</li>
+    <li>[7] Salivary metatranscriptome AI classifier. <i>npj Syst Biol Appl</i> 2021 — nature.com/articles/s41525-021-00257-x</li>
+    <li>[8] miRNA + ML diagnostics (2024) — escholarship.org/uc/item/7d85s5vk</li>
+    <li>[9] Wang X, et al. Cross-cohort saliva-microbiome ML for OSCC. <i>Front Microbiol</i> 2025;16:1692186 — frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2025.1692186/full</li>
+    <li>[10] Ciringione A, et al. Four-miRNA salivary panel. <i>Int J Mol Sci</i> 2025;26(23):11373 — mdpi.com/1422-0067/26/23/11373</li>
+    <li>[11] Dental ML scoping review (2025) — pmc.ncbi.nlm.nih.gov/articles/PMC12286321</li>
+    <li>[12] Evaluating dental AI papers (2025) — sciencedirect.com/science/article/pii/S0300571225003112</li>
+    <li>[13] AI implant prediction — not ready for case selection — sciencedirect.com/science/article/pii/S2772559626002737</li>
+    <li>[14] Fairness of ML in dental care. <i>JAMA Netw Open</i> 2023 — jamanetwork.com/journals/jamanetworkopen/fullarticle/2811316</li>
   </ol>
 </div>
 
@@ -375,32 +463,55 @@ footer p{font-family:var(--mono);font-size:11.5px}
 <div class="panel" id="panel"></div>
 
 <script>
-var curPanel=null;
-function togglePanel(id,btn){
-  if(curPanel===id){closePanel();return;}
-  var btns=document.querySelectorAll('.kitsb button.plus');
-  for(var i=0;i<btns.length;i++)btns[i].classList.remove('act');
-  if(btn)btn.classList.add('act');
-  openPanel(id);
-}
+/* ---------- theme (whole page, device-preference default) ---------- */
+(function(){var s=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';if(!document.documentElement.getAttribute('data-theme'))document.documentElement.setAttribute('data-theme',s);})();
+function effectiveTheme(){var e=document.documentElement.getAttribute('data-theme');return e||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}
+function refreshThemeIcon(){var b=document.getElementById('btnThemeToggle'),d=effectiveTheme()==='dark';b.textContent=d?'☀️':'🌙';b.setAttribute('aria-label',d?'Switch to light theme':'Switch to dark theme')}
+document.getElementById('btnThemeToggle').addEventListener('click',function(){document.documentElement.setAttribute('data-theme',effectiveTheme()==='dark'?'light':'dark');refreshThemeIcon()});
+refreshThemeIcon();
+
+/* ---------- panels: delegated, debounced (phone-safe), toggle on 2nd click ---------- */
+var curPanel=null,lastAct=0;
 function openPanel(id){
-  var src=document.getElementById(id);
+  var src=document.getElementById(id);if(!src)return;
   var p=document.getElementById('panel');
-  p.innerHTML='<div class="pmhead"><button class="pclose" onclick="closePanel()" aria-label="Close">×</button></div>'+src.innerHTML;p.querySelectorAll('table').forEach(function(tb){var w=document.createElement('div');w.className='tscroll';tb.parentNode.insertBefore(w,tb);w.appendChild(tb);});
+  p.innerHTML='<div class="pmhead"><button type="button" class="pclose" aria-label="Close">Close ×</button></div>'+src.innerHTML;
+  p.querySelectorAll('table').forEach(function(tb){var w=document.createElement('div');w.className='tscroll';tb.parentNode.insertBefore(w,tb);w.appendChild(tb);});
   curPanel=id;p.classList.add('on');document.getElementById('pback').classList.add('on');
   document.body.style.overflow='hidden';p.scrollTop=0;
+  markActive(id);
 }
 function closePanel(){
   document.getElementById('panel').classList.remove('on');
   document.getElementById('pback').classList.remove('on');
-  document.body.style.overflow='';curPanel=null;
-  var btns=document.querySelectorAll('.kitsb button.plus');
-  for(var i=0;i<btns.length;i++)btns[i].classList.remove('act');
+  document.body.style.overflow='';curPanel=null;markActive(null);
 }
+function markActive(id){
+  document.querySelectorAll('[data-panel]').forEach(function(b){
+    var on=b.getAttribute('data-panel')===id&&id!==null;
+    b.classList.toggle('act',on);
+    b.textContent=(on?'− ':'+ ')+b.getAttribute('data-label');
+  });
+}
+function togglePanel(id,btn){
+  if(curPanel===id){closePanel();return;}
+  openPanel(id);
+}
+document.addEventListener('click',function(e){
+  var now=Date.now();if(now-lastAct<300)return;
+  var c=e.target.closest('.pclose');
+  if(c){e.preventDefault();lastAct=now;closePanel();return;}
+  var b=e.target.closest('[data-panel]');
+  if(b){e.preventDefault();lastAct=now;togglePanel(b.getAttribute('data-panel'),b);return;}
+  if(e.target.classList&&e.target.classList.contains('pback')){lastAct=now;closePanel();}
+});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closePanel();});
+document.querySelectorAll('[data-panel]').forEach(function(b){
+  b.setAttribute('data-label',b.textContent.replace(/^[+−]\s*/,''));
+});
 window.addEventListener('load',function(){
   var m=new URLSearchParams(location.search).get('open');
-  if(m&&document.getElementById(m)){openPanel(m);var b=document.querySelector('.kitsb button[onclick*=\''+m+'\']');if(b)b.classList.add('act');}
+  if(m&&document.getElementById(m))openPanel(m);
 });
 </script>
 </body>
