@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tier 2 One-Pager — Salivary Gene Panel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#FAFBFC;--ink:#10222E;--slate:#46586A;--teal:#0E7C86;--teal-soft:#E3F0F1;--signal:#D64550;--navy:#1D3A52;--line:#DCE4EA;
+:root{--paper:#FAFBFC;--ink:#10222E;--slate:#46586A;--teal:#0E7C86;--teal-soft:#E3F0F1;--signal:#D64550;--navy:#1D3A52;--line:#DCE4EA;--card:#fff;--soft:#F4F7F9;--navbg:rgba(250,251,252,.85);
 --serif:"Fraunces",Georgia,serif;--sans:"IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+html[data-theme=dark]{--paper:#0D1D28;--ink:#E8EEF2;--slate:#A9BAC6;--teal:#54B8C0;--teal-soft:#123237;--signal:#E0606B;--navy:#2C5570;--line:#243845;--card:#152634;--soft:#0F1E29;--navbg:rgba(13,29,40,.86)}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans)}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);transition:background .25s,color .25s}
 .page{width:1000px;height:1414px;padding:50px 54px;display:flex;flex-direction:column}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--teal)}
 h1{font-family:var(--serif);font-weight:500;font-size:40px;line-height:1.16;margin:12px 0 10px}
@@ -35,7 +37,7 @@ h1 em{color:var(--teal);font-style:italic}
 .barrow{display:flex;align-items:center;justify-content:center;color:#B8C4CC;font-size:16px}
 .bstep.gate{border:1.5px solid var(--signal);background:#FDF6F6}
 .bstep.gate .btag{color:var(--signal)}
-.bstep.lab{border:1.5px solid var(--navy);background:#F4F7F9}
+.bstep.lab{border:1.5px solid var(--navy);background:var(--soft)}
 .bstep.lab .btag{color:var(--navy)}
 .bnote{font-family:var(--mono);font-size:11px;color:var(--signal);margin-top:10px;text-align:center}
 .nov{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:14px}
@@ -52,7 +54,7 @@ h1 em{color:var(--teal);font-style:italic}
 .rchip{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:3px;white-space:nowrap}
 .rpi{background:var(--navy);color:#fff}.rcopi{background:var(--teal);color:#fff}
 
-.kitsb{position:fixed;left:0;top:0;bottom:0;width:250px;background:#F4F7F9;border-right:1px solid var(--line);padding:26px 0;overflow-y:auto;z-index:60;font-family:var(--sans)}
+.kitsb{position:fixed;left:0;top:0;bottom:0;width:250px;background:var(--soft);border-right:1px solid var(--line);padding:26px 0;overflow-y:auto;z-index:60;font-family:var(--sans)}
 .kitsb .klab{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--slate);padding:0 22px;margin-bottom:14px}
 .kitsb a{display:block;padding:11px 22px;font-size:13.5px;color:var(--slate);text-decoration:none;border-left:3px solid transparent;line-height:1.4}
 .kitsb a.cur{color:var(--ink);border-left-color:var(--teal);background:var(--teal-soft)}
@@ -61,7 +63,7 @@ h1 em{color:var(--teal);font-style:italic}
 .kitsb a.plus::before{content:"+ ";color:var(--teal);font-family:var(--mono)}
 @media(min-width:1100px){body{padding-left:250px}.kitnav{display:none}.page{margin:0 auto}}
 @media(max-width:1099px){.kitsb{display:none}}
-@media print{.kitsb{display:none!important}body{padding-left:0!important}}
+@media print{.kitsb,.nav{display:none!important}body{padding-left:0!important}}
 
 /* ---- mobile traversal: bottom pager + footer more ---- */
 .kitnav{display:none!important}
@@ -94,9 +96,16 @@ h1 em{color:var(--teal);font-style:italic}
   .gcard,.nstep,.f,.st,.cc,.scard,.bstep,.fstep{padding:14px}
   .foot{flex-wrap:wrap;gap:10px}
 }
+
+html[data-theme=dark] .gcard,html[data-theme=dark] .tcard,html[data-theme=dark] .f,html[data-theme=dark] .scard,html[data-theme=dark] .st,html[data-theme=dark] .plank,html[data-theme=dark] .bstep,html[data-theme=dark] .fstep,html[data-theme=dark] .pillar,html[data-theme=dark] .pchip,html[data-theme=dark] .note,html[data-theme=dark] .callout,html[data-theme=dark] .fmob a,html[data-theme=dark] .pager a,html[data-theme=dark] .kitsb{background:var(--card);border-color:var(--line)}
+html[data-theme=dark] .gcard p,html[data-theme=dark] .tcard p,html[data-theme=dark] .f p,html[data-theme=dark] .scard,html[data-theme=dark] .st,html[data-theme=dark] .plank p,html[data-theme=dark] .bstep p,html[data-theme=dark] .fstep p,html[data-theme=dark] .pchip,html[data-theme=dark] .sub,html[data-theme=dark] p,html[data-theme=dark] td,html[data-theme=dark] li{color:var(--slate)}
+html[data-theme=dark] .tcard .tl,html[data-theme=dark] .mk,html[data-theme=dark] .fmlab,html[data-theme=dark] .eyebrow,html[data-theme=dark] .flowlab,html[data-theme=dark] .blab,html[data-theme=dark] .btag,html[data-theme=dark] .nnum{color:var(--teal)}
+html[data-theme=dark] .foot p,html[data-theme=dark] .meta,html[data-theme=dark] .src{color:var(--slate)}
+
 </style>
 </head>
 <body>
+<nav class="nav"><div class="nav-brand"><img class="nav-logo" src="KP_Singh.png" alt="K.P. Singh"/><div><div class="nav-name">K.P. Singh</div><div class="nav-sub">SGT University · Tier 2 summary</div></div></div><div class="nav-links"><button class="theme-toggle" id="btnThemeToggle" type="button" aria-label="Toggle dark/light theme">🌙</button><a class="nav-cta" href="https://kpsingh.in" target="_blank">kpsingh.in ↗</a></div></nav>
 <nav class="kitsb"><div class="klab">OAI-2026 · RESEARCH KIT</div>
 <a href="index.html">01 · Proposal — home</a>
 <a href="tier1-handout.html">02 · Tier 1 — one-pager</a>
@@ -107,7 +116,6 @@ h1 em{color:var(--teal);font-style:italic}
 <div class="klab morelab">MORE — OPENS IN PROPOSAL</div>
 <a class="plus" href="index.html?open=ov-timeline">Timeline & milestones</a>
 <a class="plus" href="index.html?open=ov-roles">Roles & responsibilities</a>
-<a class="plus" href="index.html?open=ov-qr">Quick reference</a>
 <a class="plus" href="index.html?open=ov-risks">Risks & mitigation</a>
 <a class="plus" href="index.html?open=ov-refs">References</a>
 </nav>
@@ -164,7 +172,14 @@ h1 em{color:var(--teal);font-style:italic}
     <p>BASELINES, NOT COMPETITORS</p>
   </div>
 </div>
-<div class="fmob"><div class="fmlab">MORE — EXPANDS IN THE PROPOSAL</div><div class="fgrid"><a href="index.html?open=ov-timeline">+ Timeline & milestones</a><a href="index.html?open=ov-roles">+ Roles & responsibilities</a><a href="index.html?open=ov-qr">+ Quick reference</a><a href="index.html?open=ov-risks">+ Risks & mitigation</a><a href="index.html?open=ov-refs">+ References</a></div></div>
+<div class="fmob"><div class="fmlab">MORE — EXPANDS IN THE PROPOSAL</div><div class="fgrid"><a href="index.html?open=ov-timeline">+ Timeline & milestones</a><a href="index.html?open=ov-roles">+ Roles & responsibilities</a><a href="index.html?open=ov-risks">+ Risks & mitigation</a><a href="index.html?open=ov-refs">+ References</a></div></div>
 <div class="pager"><a class="pv" href="tier1-handout.html"><span class="ar">←</span><span><small>PREV</small>02 · Tier 1 — one-pager</span></a><a class="nx" href="tissue-saliva-bridge-infographic.html"><span><small>NEXT</small>04 · Tissue → saliva bridge</span><span class="ar">→</span></a></div>
+<script>
+function effectiveTheme(){const e=document.documentElement.getAttribute('data-theme');return e||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}
+function refreshThemeIcon(){const b=document.getElementById('btnThemeToggle'),d=effectiveTheme()==='dark';b.textContent=d?'☀️':'🌙';b.setAttribute('aria-label',d?'Switch to light theme':'Switch to dark theme')}
+if(!document.documentElement.getAttribute('data-theme'))document.documentElement.setAttribute('data-theme',matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+document.getElementById('btnThemeToggle').addEventListener('click',()=>{document.documentElement.setAttribute('data-theme',effectiveTheme()==='dark'?'light':'dark');refreshThemeIcon()});
+refreshThemeIcon();
+</script>
 </body>
 </html>
