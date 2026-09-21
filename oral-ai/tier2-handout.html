@@ -77,6 +77,23 @@ h1 em{color:var(--teal);font-style:italic}
 .fmob a{display:block;background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:6px;padding:12px;font-size:12.5px;color:var(--ink);text-decoration:none}
 @media(max-width:1099px){.pager{display:flex}.fmob{display:block}}
 @media print{.pager,.fmob{display:none!important}}
+
+/* ---- mobile: real responsive, no zoom-out ---- */
+@media(max-width:1099px){
+  .page{width:100%;height:auto;padding:22px 16px 36px}
+  h1{font-size:27px}
+  .sub{font-size:14.5px}
+  .gapgrid,.nov,.filters,.status,.done,.concepts,.princ,.tables,.story,.flip{grid-template-columns:1fr!important}
+  .bridge,.deck,.flow{grid-template-columns:1fr!important}
+  .bridge .barrow,.flow .farr{transform:rotate(90deg);height:30px}
+  .planks{grid-template-columns:1fr;padding:0}
+  .flowline{flex-wrap:wrap}
+  .fbox{min-width:44%}
+  table{font-size:12.5px}
+  td,th{padding:6px 7px}
+  .gcard,.nstep,.f,.st,.cc,.scard,.bstep,.fstep{padding:14px}
+  .foot{flex-wrap:wrap;gap:10px}
+}
 </style>
 </head>
 <body>
