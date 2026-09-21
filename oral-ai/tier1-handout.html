@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tier 1 One-Pager — Oral → Systemic</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#FAFBFC;--ink:#10222E;--slate:#46586A;--teal:#0E7C86;--teal-soft:#E3F0F1;--signal:#D64550;--navy:#1D3A52;--line:#DCE4EA;
+:root{--paper:#FAFBFC;--ink:#10222E;--slate:#46586A;--teal:#0E7C86;--teal-soft:#E3F0F1;--signal:#D64550;--navy:#1D3A52;--line:#DCE4EA;--card:#fff;--soft:#F4F7F9;--navbg:rgba(250,251,252,.85);
 --serif:"Fraunces",Georgia,serif;--sans:"IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+html[data-theme=dark]{--paper:#0D1D28;--ink:#E8EEF2;--slate:#A9BAC6;--teal:#54B8C0;--teal-soft:#123237;--signal:#E0606B;--navy:#2C5570;--line:#243845;--card:#152634;--soft:#0F1E29;--navbg:rgba(13,29,40,.86)}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans)}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);transition:background .25s,color .25s}
 .page{width:1000px;height:1414px;padding:50px 54px;display:flex;flex-direction:column}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--teal)}
 h1{font-family:var(--serif);font-weight:500;font-size:40px;line-height:1.16;margin:12px 0 10px}
@@ -64,7 +66,21 @@ h1 em{color:var(--teal);font-style:italic}
 .kitsb a.plus::before{content:"+ ";color:var(--teal);font-family:var(--mono)}
 @media(min-width:1100px){body{padding-left:250px}.kitnav{display:none}.page{margin:0 auto}}
 @media(max-width:1099px){.kitsb{display:none}}
-@media print{.kitsb{display:none!important}body{padding-left:0!important}}
+@media print{.kitsb,.nav{display:none!important}body{padding-left:0!important}}
+
+.nav{position:sticky;top:0;z-index:70;display:flex;align-items:center;justify-content:space-between;gap:16px;backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line);padding:10px 22px;margin:0 0 20px;background:var(--navbg)}
+.nav-brand{display:flex;align-items:center;gap:10px;min-width:0}
+.nav-logo{width:38px;height:38px;border-radius:50%;object-fit:contain;flex-shrink:0;background:transparent}
+.nav-name{font-weight:700;font-size:.98rem;line-height:1.15}
+.nav-sub{font-size:.76rem;opacity:.7;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:10px}
+.nav-cta{text-decoration:none;font-size:.85rem;font-weight:700;padding:8px 14px;border-radius:999px;white-space:nowrap;background:var(--teal);color:#fff}
+.theme-toggle{background:none;border:1px solid var(--line);color:inherit;font-size:1rem;width:36px;height:36px;border-radius:999px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+@media(max-width:640px){.nav{padding:10px 14px}.nav-sub{display:none}}
+
+html[data-theme=dark] .gcard,html[data-theme=dark] .flipped,html[data-theme=dark] .nstep,html[data-theme=dark] .kitsb,html[data-theme=dark] .fmob a,html[data-theme=dark] .pager a{background:var(--card);border-color:var(--line)}
+html[data-theme=dark] .old .fbox{background:#1A2C39;border-color:var(--line);color:var(--ink)}
+html[data-theme=dark] .foot p{color:var(--slate)}
 
 /* ---- mobile traversal: bottom pager + footer more ---- */
 .kitnav{display:none!important}
@@ -100,6 +116,7 @@ h1 em{color:var(--teal);font-style:italic}
 </style>
 </head>
 <body>
+<nav class="nav"><div class="nav-brand"><img class="nav-logo" src="KP_Singh.png" alt="K.P. Singh"/><div><div class="nav-name">K.P. Singh</div><div class="nav-sub">SGT University · Tier 1 summary</div></div></div><div class="nav-links"><button class="theme-toggle" id="btnThemeToggle" type="button" aria-label="Toggle dark/light theme">🌙</button><a class="nav-cta" href="https://kpsingh.in" target="_blank">kpsingh.in ↗</a></div></nav>
 <nav class="kitsb"><div class="klab">OAI-2026 · RESEARCH KIT</div>
 <a href="index.html">01 · Proposal — home</a>
 <a href="tier1-handout.html" class="cur">02 · Tier 1 — one-pager</a>
@@ -167,5 +184,12 @@ h1 em{color:var(--teal);font-style:italic}
 </div>
 <div class="fmob"><div class="fmlab">MORE — EXPANDS IN THE PROPOSAL</div><div class="fgrid"><a href="index.html?open=ov-timeline">+ Timeline & milestones</a><a href="index.html?open=ov-roles">+ Roles & responsibilities</a><a href="index.html?open=ov-qr">+ Quick reference</a><a href="index.html?open=ov-risks">+ Risks & mitigation</a><a href="index.html?open=ov-refs">+ References</a></div></div>
 <div class="pager"><a class="pv" href="index.html"><span class="ar">←</span><span><small>PREV</small>01 · Proposal — home</span></a><a class="nx" href="tier2-handout.html"><span><small>NEXT</small>03 · Tier 2 — one-pager</span><span class="ar">→</span></a></div>
+<script>
+function effectiveTheme(){const e=document.documentElement.getAttribute('data-theme');return e||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}
+function refreshThemeIcon(){const b=document.getElementById('btnThemeToggle'),d=effectiveTheme()==='dark';b.textContent=d?'☀️':'🌙';b.setAttribute('aria-label',d?'Switch to light theme':'Switch to dark theme')}
+if(!document.documentElement.getAttribute('data-theme'))document.documentElement.setAttribute('data-theme',matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+document.getElementById('btnThemeToggle').addEventListener('click',()=>{document.documentElement.setAttribute('data-theme',effectiveTheme()==='dark'?'light':'dark');refreshThemeIcon()});
+refreshThemeIcon();
+</script>
 </body>
 </html>
