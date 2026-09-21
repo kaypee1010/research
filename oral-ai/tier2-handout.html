@@ -12,6 +12,14 @@
 html[data-theme=dark]{--paper:#0D1D28;--ink:#E8EEF2;--slate:#A9BAC6;--teal:#54B8C0;--teal-soft:#123237;--signal:#E0606B;--navy:#2C5570;--line:#243845;--card:#152634;--soft:#0F1E29;--navbg:rgba(13,29,40,.86)}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font-family:var(--sans);transition:background .25s,color .25s}
+.nav{position:sticky;top:0;z-index:70;display:flex;align-items:center;justify-content:space-between;gap:16px;backdrop-filter:saturate(180%) blur(10px);border:1px solid var(--line);padding:10px 22px;margin:12px auto 20px;width:min(1000px,calc(100% - 32px));border-radius:14px;background:var(--navbg)}
+.nav-brand{display:flex;align-items:center;gap:10px;min-width:0}
+.nav-logo{width:38px;height:38px;border-radius:50%;object-fit:cover;object-position:center;flex-shrink:0;background:transparent}
+.nav-name{font-weight:700;font-size:.98rem;line-height:1.15}
+.nav-sub{font-size:.76rem;opacity:.7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-links{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-cta{text-decoration:none;font-size:.85rem;font-weight:700;padding:8px 14px;border-radius:999px;white-space:nowrap;background:var(--teal);color:#fff}
+.theme-toggle{background:none;border:1px solid var(--line);color:inherit;font-size:1rem;width:36px;height:36px;border-radius:999px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .page{width:1000px;height:1414px;padding:50px 54px;display:flex;flex-direction:column}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--teal)}
 h1{font-family:var(--serif);font-weight:500;font-size:40px;line-height:1.16;margin:12px 0 10px}
@@ -61,8 +69,9 @@ h1 em{color:var(--teal);font-style:italic}
 .kitsb a:hover{color:var(--teal)}
 .kitsb .morelab{margin-top:20px;border-top:1px solid var(--line);padding-top:18px}
 .kitsb a.plus::before{content:"+ ";color:var(--teal);font-family:var(--mono)}
-@media(min-width:1100px){body{padding-left:250px}.kitnav{display:none}.page{margin:0 auto}}
-@media(max-width:1099px){.kitsb{display:none}}
+@media(min-width:1100px){body{padding-left:250px}.kitnav{display:none}.page{margin:0 auto}.nav{margin:12px auto 20px;max-width:1000px}}
+@media(max-width:1099px){.kitsb{display:none}.nav{width:calc(100% - 24px);padding:10px 14px;margin:0 auto 14px;border-radius:0 0 14px 14px;border-top:0}}
+@media(max-width:640px){.nav-sub{display:none}.nav{gap:10px}.nav-cta{padding:8px 12px;font-size:.8rem}}
 @media print{.kitsb,.nav{display:none!important}body{padding-left:0!important}}
 
 /* ---- mobile traversal: bottom pager + footer more ---- */
@@ -105,7 +114,7 @@ html[data-theme=dark] .foot p,html[data-theme=dark] .meta,html[data-theme=dark] 
 </style>
 </head>
 <body>
-<nav class="nav"><div class="nav-brand"><img class="nav-logo" src="KP_Singh.png" alt="K.P. Singh"/><div><div class="nav-name">K.P. Singh</div><div class="nav-sub">SGT University · Tier 2 summary</div></div></div><div class="nav-links"><button class="theme-toggle" id="btnThemeToggle" type="button" aria-label="Toggle dark/light theme">🌙</button><a class="nav-cta" href="https://kpsingh.in" target="_blank">kpsingh.in ↗</a></div></nav>
+<nav class="nav"><div class="nav-brand"><img class="nav-logo" src="KP_Singh.jpg" alt="K.P. Singh"/><div><div class="nav-name">K.P. Singh</div><div class="nav-sub">SGT University · Tier 2 summary</div></div></div><div class="nav-links"><button class="theme-toggle" id="btnThemeToggle" type="button" aria-label="Toggle dark/light theme">🌙</button><a class="nav-cta" href="https://kpsingh.in" target="_blank">kpsingh.in ↗</a></div></nav>
 <nav class="kitsb"><div class="klab">OAI-2026 · RESEARCH KIT</div>
 <a href="index.html">01 · Proposal — home</a>
 <a href="tier1-handout.html">02 · Tier 1 — one-pager</a>
