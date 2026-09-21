@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tier 1 One-Pager — Oral → Systemic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FAFBFC;--ink:#10222E;--slate:#46586A;--teal:#0E7C86;--teal-soft:#E3F0F1;--signal:#D64550;--navy:#1D3A52;--line:#DCE4EA;
+--serif:"Fraunces",Georgia,serif;--sans:"IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans)}
+.page{width:1000px;height:1414px;padding:50px 54px;display:flex;flex-direction:column}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--teal)}
+h1{font-family:var(--serif);font-weight:500;font-size:40px;line-height:1.16;margin:12px 0 10px}
+h1 em{color:var(--teal);font-style:italic}
+.sub{color:var(--slate);font-size:15.5px;line-height:1.6;max-width:860px}
+.sub b{color:var(--ink)}
+.chips{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:4px 10px;border-radius:3px;background:var(--teal-soft);color:var(--teal);white-space:nowrap}
+.tag.red{background:#FDF6F6;color:var(--signal);border:1px solid var(--signal)}
+.band{margin-top:34px}
+.blab{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;color:var(--signal);display:flex;align-items:center;gap:14px}
+.blab::after{content:"";flex:1;height:1px;background:var(--line)}
+.blab.teal{color:var(--teal)}
+.gapgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px;margin-top:14px}
+.gcard{background:#fff;border:1px solid var(--line);border-top:3px solid var(--signal);border-radius:6px;padding:16px 17px}
+.gcard b{font-size:15px;display:block;margin-bottom:6px}
+.gcard p{font-size:13px;color:var(--slate);line-height:1.55}
+.flip{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+.flipped{background:#fff;border:1px solid var(--line);border-radius:6px;padding:18px}
+.flipped.new{border:1.5px solid var(--teal);background:#FBFDFD}
+.flab{font-family:var(--mono);font-size:10px;letter-spacing:.12em;margin-bottom:14px;display:block}
+.flowline{display:flex;align-items:center;gap:8px;flex-wrap:nowrap}
+.fbox{border-radius:5px;padding:12px 12px;font-size:14px;font-weight:500;text-align:center;line-height:1.3;flex:1}
+.fbox small{display:block;font-weight:400;font-size:11px;margin-top:3px}
+.arrow{color:#B8C4CC;font-size:18px}
+.old .fbox{background:#F0F3F5;color:var(--slate);border:1px solid var(--line)}
+.old .flab{color:#8FA3AF}
+.new .fbox.o{background:var(--teal-soft);color:var(--teal)}
+.new .fbox.r{background:var(--navy);color:#fff}
+.new .fbox.g{background:#fff;border:1.5px dashed var(--signal);color:var(--signal)}
+.new .flab{color:var(--teal)}
+.nov{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:14px}
+.nstep{background:#fff;border:1px solid var(--line);border-radius:6px;padding:16px 15px}
+.nnum{font-family:var(--mono);font-size:11px;color:var(--teal);letter-spacing:.12em}
+.nstep b{display:block;font-size:14.5px;margin:6px 0 4px}
+.nstep p{font-size:12.5px;color:var(--slate);line-height:1.5}
+.fund{margin-top:34px;background:var(--teal-soft);border-left:4px solid var(--teal);border-radius:0 6px 6px 0;padding:18px 22px}
+.fund p{font-size:14px;color:var(--ink);line-height:1.6}
+.fund b{color:var(--teal)}
+.foot{margin-top:auto;border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.foot p{font-family:var(--mono);font-size:10.5px;color:#8FA3AF}
+.roles{display:flex;gap:8px}
+.rchip{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:3px;white-space:nowrap}
+.rpi{background:var(--navy);color:#fff}.rcopi{background:var(--teal);color:#fff}
+</style>
+</head>
+<body>
+<div class="page">
+  <p class="eyebrow">TIER 1 · ORAL → SYSTEMIC · ONE-PAGE SUMMARY</p>
+  <h1>Reverse oral–systemic risk prediction from <em>routine dental-exam data</em></h1>
+  <p class="sub">NHANES 2009–2018 · dental-exam features flag <b>undiagnosed diabetes and cardiovascular risk</b> — a triage flag, never a diagnosis.</p>
+  <div class="chips">
+    <span class="tag">NHANES · PUBLIC DATA</span><span class="tag">NO ASSAY</span><span class="tag">PAPER 1 DRAFT · MONTH 6</span><span class="tag red">SEED-GRANT SCOPE</span>
+  </div>
+
+  <div class="band">
+    <div class="blab">RESEARCH GAP</div>
+    <div class="gapgrid">
+      <div class="gcard"><b>Wrong direction</b><p>The 2019 NHANES model predicts gum disease <i>from</i> diabetes — the arrow was never flipped.</p></div>
+      <div class="gcard"><b>No rigor layer</b><p>DDS score (2025): no calibration, no fairness audit — the field-wide gap.</p></div>
+      <div class="gcard"><b>Lab-bound</b><p>George 2025: saliva + five ELISA assays — and only already-diagnosed patients.</p></div>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="blab teal">THE DIFFERENTIATOR — THE FLIP</div>
+    <div class="flip">
+      <div class="flipped old">
+        <span class="flab">EXISTING · 2019 NHANES MODEL</span>
+        <div class="flowline"><div class="fbox">Diabetes / CVD<small>systemic factors</small></div><span class="arrow">→</span><div class="fbox">Gum disease<small>predicts the mouth</small></div></div>
+      </div>
+      <div class="flipped new">
+        <span class="flab">OURS · TIER 1</span>
+        <div class="flowline"><div class="fbox o">Dental exam chart<small>pockets · missing teeth · bleeding</small></div><span class="arrow">→</span><div class="fbox r">Undiagnosed diabetes / CVD<small>flags the body</small></div><span class="arrow">→</span><div class="fbox g">Blood test<small>triage, not diagnosis</small></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="blab teal">WHERE THE NOVELTY COMES FROM</div>
+    <div class="nov">
+      <div class="nstep"><span class="nnum">01</span><b>Exam-only input</b><p>No assay, no new collection.</p></div>
+      <div class="nstep"><span class="nnum">02</span><b>Calibrated</b><p>Probabilities that mean what they say.</p></div>
+      <div class="nstep"><span class="nnum">03</span><b>Temporal + fair</b><p>Later-cycle validation; subgroups named.</p></div>
+      <div class="nstep"><span class="nnum">04</span><b>Chairside score</b><p>SHAP-distilled; vs DDS / ADA.</p></div>
+    </div>
+  </div>
+
+  <div class="fund">
+    <p><b>Funding angle.</b> A zero-cost public-data pilot; first paper by month 6. <b>PI:</b> clinical governance + the refer-for-testing threshold. <b>Co-PI:</b> the full computational stack.</p>
+  </div>
+
+  <div class="foot">
+    <p>OAI-2026 · TIER 1 · SEPTEMBER 2026</p>
+    <div class="roles"><span class="rchip rpi">PI — DR. KAPOOR</span><span class="rchip rcopi">CO-PI — KAMAL PREET SINGH</span></div>
+    <p>BASELINES, NOT COMPETITORS</p>
+  </div>
+</div>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

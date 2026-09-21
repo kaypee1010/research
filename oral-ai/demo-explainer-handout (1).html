@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Demo — From Genes to a Panel (One Page)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FAFBFC;--ink:#10222E;--slate:#46586A;--teal:#0E7C86;--teal-soft:#E3F0F1;--signal:#D64550;--navy:#1D3A52;--line:#DCE4EA;
+--serif:"Fraunces",Georgia,serif;--sans:"IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans)}
+.page{width:1000px;height:1414px;padding:50px 54px;display:flex;flex-direction:column}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--teal)}
+h1{font-family:var(--serif);font-weight:500;font-size:42px;line-height:1.15;margin:12px 0 10px}
+h1 em{color:var(--teal);font-style:italic}
+.sub{color:var(--slate);font-size:15px;line-height:1.6}
+.sub b{color:var(--ink)}
+.tables{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.tcard{background:#fff;border:1px solid var(--line);border-radius:7px;padding:16px 18px}
+.tcard .tl{font-family:var(--mono);font-size:10px;letter-spacing:.12em;display:block;margin-bottom:9px}
+.tcard.t1 .tl{color:var(--navy)}.tcard.t2 .tl{color:var(--teal)}
+.tcard p{font-size:12px;color:var(--slate);line-height:1.5;margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:11.5px}
+th{font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--slate);text-align:left;padding:5px 6px;border-bottom:2px solid var(--ink);font-weight:500}
+td{padding:5px 6px;border-bottom:1px solid var(--line);color:var(--slate)}
+td:first-child{color:var(--ink);font-weight:500}
+tr.hi td{background:var(--teal-soft)}
+.filters{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px;margin-top:26px}
+.f{background:#fff;border:1px solid var(--line);border-top:3px solid var(--teal);border-radius:6px;padding:16px}
+.f .qn{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--teal)}
+.f b{display:block;font-size:15px;margin:6px 0 6px}
+.f p{font-size:12.5px;color:var(--slate);line-height:1.6}
+.f p b{display:inline;font-size:12.5px;margin:0}
+.f .g{font-family:var(--mono);font-size:10.5px;margin-top:8px;display:block}
+.g.pass{color:var(--teal)}.g.fail{color:var(--signal)}
+.result{margin-top:24px;background:var(--teal-soft);border-left:4px solid var(--teal);border-radius:0 6px 6px 0;padding:18px 22px}
+.result p{font-size:15px;color:var(--ink);line-height:1.55;margin:0}
+.result b{color:var(--teal)}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:22px}
+.scard{background:#fff;border:1px solid var(--line);border-radius:6px;padding:15px 17px;font-size:12.5px;line-height:1.6;color:var(--slate)}
+.scard .mk{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;display:block;margin-bottom:5px}
+.scard.done .mk{color:var(--slate)}.scard.ours{border:1.5px solid var(--teal)}
+.scard.ours .mk{color:var(--teal)}
+.scard b{color:var(--ink)}
+.foot{margin-top:auto;border-top:1px solid var(--line);padding-top:14px;display:flex;justify-content:space-between;align-items:center}
+.foot p{font-family:var(--mono);font-size:10px;color:#8FA3AF}
+</style>
+</head>
+<body>
+<div class="page">
+  <p class="eyebrow">TIER 2 · DEMO · FROM GENES TO A PANEL</p>
+  <h1>Two tables, three filters — <em>one panel.</em></h1>
+  <p class="sub"><b>Illustrative numbers</b> (4 genes, 8 patients — real run: 40–60 candidates); logic and sources real. <b>Table 1</b> = tumor records · <b>Table 2</b> = public saliva data.</p>
+
+  <div class="tables">
+    <div class="tcard t1">
+      <span class="tl">TABLE 1 · TCGA — TUMOR RECORDS</span>
+      <table>
+        <tr><th>Patient</th><th>Type</th><th>GENE_A</th><th>GENE_B</th><th>GENE_C</th><th>GENE_D</th><th>Survival</th></tr>
+        <tr class="hi"><td>P1</td><td>TUMOR</td><td>9.5</td><td>8.8</td><td>4.2</td><td>6.1</td><td>14 mo</td></tr>
+        <tr class="hi"><td>P2</td><td>TUMOR</td><td>8.7</td><td>9.4</td><td>3.9</td><td>5.8</td><td>16 mo</td></tr>
+        <tr class="hi"><td>P3</td><td>TUMOR</td><td>10.1</td><td>7.9</td><td>4.4</td><td>6.6</td><td>12 mo</td></tr>
+        <tr><td>P4</td><td>TUMOR</td><td>6.2</td><td>6.5</td><td>4.0</td><td>4.9</td><td>28 mo</td></tr>
+        <tr><td>P5–P8</td><td>NORMAL</td><td>~1.1</td><td>~1.0</td><td>~4.0</td><td>~2.0</td><td>—</td></tr>
+      </table>
+      <p>Highlighted rows died early. Gene columns = <b>features</b>.</p>
+    </div>
+    <div class="tcard t2">
+      <span class="tl">TABLE 2 · GEO — PUBLIC SALIVA DATA (FREE)</span>
+      <table>
+        <tr><th>Sample</th><th>Status</th><th>GENE_A</th><th>GENE_B</th><th>GENE_C</th><th>GENE_D</th></tr>
+        <tr><td>S1–S4</td><td>OSCC saliva</td><td>~7.6</td><td>~0.2</td><td>~4.4</td><td>~5.2</td></tr>
+        <tr><td>S5–S8</td><td>Healthy saliva</td><td>~1.5</td><td>~0.2</td><td>~4.3</td><td>~2.1</td></tr>
+      </table>
+      <p>Measured by other researchers, published openly — the <b>month-3 gate</b>, on a laptop.</p>
+    </div>
+  </div>
+
+  <div class="filters">
+    <div class="f"><span class="qn">FILTER 1 · TUMOR VS NORMAL</span><b>Contributing?</b><p>A <b>7.5×</b> · B <b>7.8×</b> · D <b>3.0×</b> — pass. C: 1.0× — in the tumor (4.2) but just as present without cancer (4.0). <b>Present ≠ contributing.</b></p><span class="g pass">A B D IN · C OUT</span></div>
+    <div class="f"><span class="qn">FILTER 2 · SURVIVAL</span><b>Level ↔ lifespan?</b><p>Early deaths averaged <b>9.4</b>; the 28-month survivor: <b>6.2</b>. Importance proven, not assumed.</p><span class="g pass">A B D IN</span></div>
+    <div class="f"><span class="qn">FILTER 3 · SALIVA (FREE)</span><b>Detectable?</b><p>A: <b>5.1×</b>, measurable. D: <b>2.5×</b>. B — the tumor hero — level ≈ 0.2: never leaves the tumor.</p><span class="g pass">A D IN</span><span class="g fail">B OUT — known at ₹0</span></div>
+  </div>
+
+  <div class="result">
+    <p><b>Panel = GENE_A + GENE_D.</b> Each carries tumor + survival + saliva evidence. Real run: 40–60 candidates → 5–10; qPCR in the PI's lab — only after the gate.</p>
+  </div>
+
+  <div class="story">
+    <div class="scard done"><span class="mk">DONE BEFORE</span><b>Selected from Table 2 alone.</b> Li 2004: 7 mRNAs, 91/91 · npj 2021: black box · Ciringione 2025: 4 miRNAs, n = 60.</div>
+    <div class="scard ours"><span class="mk">OURS</span><b>Table 1 first, then Table 2 — free — then the lab.</b> The chain is the novelty: <b>baselines, not competitors.</b></div>
+  </div>
+
+  <div class="foot">
+    <p>OAI-2026 · DEMO · NUMBERS ILLUSTRATIVE, SOURCES REAL</p>
+    <p>LI 2004 · NPJ 2021 · CIRINGIONE 2025 = BASELINES</p>
+    <p>SEPTEMBER 2026</p>
+  </div>
+</div>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

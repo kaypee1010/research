@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1040">
+<title>Demo — How a Salivary Gene Panel Is Selected</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FAFBFC;--ink:#10222E;--slate:#46586A;--teal:#0E7C86;--teal-soft:#E3F0F1;--signal:#D64550;--navy:#1D3A52;--line:#DCE4EA;
+--serif:"Fraunces",Georgia,serif;--sans:"IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+.doc{max-width:880px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--teal);text-transform:uppercase;margin-top:48px;display:block}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(25px,4vw,35px);line-height:1.2;margin:12px 0 10px}
+h1 em{color:var(--teal);font-style:italic}
+.meta{font-family:var(--mono);font-size:12px;color:var(--slate);margin-bottom:30px}
+h2{font-family:var(--serif);font-weight:500;font-size:21px;margin:38px 0 8px;padding-top:8px;border-top:1px solid var(--line)}
+p{color:var(--slate);margin:10px 0}
+p b,li b{color:var(--ink)}
+ul{margin:10px 0 10px 22px;color:var(--slate)}
+li{margin:6px 0}
+.note{background:#FDF6F6;border-left:4px solid var(--signal);border-radius:0 6px 6px 0;padding:14px 20px;margin:16px 0;font-size:14px}
+.note p{color:var(--ink);margin:0}
+.callout{background:var(--teal-soft);border-left:4px solid var(--teal);border-radius:0 6px 6px 0;padding:16px 22px;margin:16px 0}
+.callout p{color:var(--ink);margin:0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:14px 0}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--slate);text-align:left;padding:9px 11px;border-bottom:2px solid var(--ink);font-weight:500}
+td{padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--slate)}
+td:first-child{color:var(--ink);font-weight:500}
+tr.hi td{background:var(--teal-soft)}
+tr.bad td{background:#FDF6F6}
+.pass{color:var(--teal);font-weight:500}.fail{color:var(--signal);font-weight:500}
+.src{font-family:var(--mono);font-size:11px;color:#7C8B96;word-break:break-all}
+ol{margin:10px 0 10px 22px;color:var(--slate)}
+ol li{margin:8px 0}
+footer{margin:46px 0 60px;border-top:1px solid var(--line);padding-top:16px}
+footer p{font-family:var(--mono);font-size:11.5px;color:#8FA3AF}
+
+.kitnav{position:sticky;top:0;z-index:50;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;background:#FFFFFFEE;border-bottom:1px solid var(--line);padding:9px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.06em}
+.kitnav a{color:var(--slate);text-decoration:none;white-space:nowrap}
+.kitnav a:hover{color:var(--teal)}
+.kitnav a.cur{color:var(--teal);border-bottom:2px solid var(--teal)}
+@media print{.kitnav{display:none}}
+</style>
+</head>
+<body>
+<nav class="kitnav"><a href="index.html">OVERVIEW</a><a href="index.html">PROPOSAL · HOME</a><a href="tier1-handout.html">TIER 1</a><a href="tier2-handout.html">TIER 2</a><a href="tissue-saliva-bridge-infographic.html">BRIDGE</a><a href="demo-explainer-handout.html">DEMO · 1-PAGER</a><a href="panel-selection-demo.html" class="cur">DEMO · FULL</a></nav>
+<div class="doc">
+<span class="eyebrow">Tier 2 · Demo — companion to proposal OAI-2026</span>
+<h1>How a salivary gene panel is selected — a <em>demo</em> on a miniature dataset</h1>
+<p class="meta">Prepared by Kamal Preet Singh · September 2026 · Companion documents: research-program-proposal.html · tissue-saliva-bridge-infographic.html</p>
+
+<div class="note"><p><b>How to read this.</b> The numbers below are <b>illustrative</b> — a demo with 4 genes and 8 patients, built to make the method visible in two minutes. The <b>logic, filters and sources are real</b>: the actual run starts from ~500 patients (TCGA-HNSC) and 40–60 candidate genes, and the published studies cited in section 3 are what this demo is calibrated against.</p></div>
+
+<h2>1 · The two tables everything sits on</h2>
+<p>A diagnostic panel needs a small set of markers (published panels use 4–7). The question is <b>how to choose them</b>. Everything depends on two kinds of data:</p>
+
+<p><b>Table 1 — Tumor records (TCGA).</b> Each row is a patient who had oral cancer; each gene column is that gene's activity level in their tumor; the last column is how long they survived. Gene columns are the <b>features</b> — the raw material any model or selection rule works on.</p>
+<table>
+  <tr><th>Patient</th><th>Type</th><th>GENE_A</th><th>GENE_B</th><th>GENE_C</th><th>GENE_D</th><th>Survival (months)</th></tr>
+  <tr class="hi"><td>P1</td><td>TUMOR</td><td>9.5</td><td>8.8</td><td>4.2</td><td>6.1</td><td>14</td></tr>
+  <tr class="hi"><td>P2</td><td>TUMOR</td><td>8.7</td><td>9.4</td><td>3.9</td><td>5.8</td><td>16</td></tr>
+  <tr class="hi"><td>P3</td><td>TUMOR</td><td>10.1</td><td>7.9</td><td>4.4</td><td>6.6</td><td>12</td></tr>
+  <tr><td>P4</td><td>TUMOR</td><td>6.2</td><td>6.5</td><td>4.0</td><td>4.9</td><td>28</td></tr>
+  <tr><td>P5</td><td>NORMAL</td><td>1.2</td><td>1.0</td><td>4.1</td><td>2.0</td><td>—</td></tr>
+  <tr><td>P6</td><td>NORMAL</td><td>0.9</td><td>1.3</td><td>3.8</td><td>1.7</td><td>—</td></tr>
+  <tr><td>P7</td><td>NORMAL</td><td>1.4</td><td>0.8</td><td>4.3</td><td>2.2</td><td>—</td></tr>
+  <tr><td>P8</td><td>NORMAL</td><td>1.1</td><td>1.1</td><td>3.9</td><td>1.9</td><td>—</td></tr>
+</table>
+<p>Highlighted rows: patients who died early (12–16 months). P4 survived 28 months.</p>
+
+<p><b>Table 2 — Public saliva data (GEO).</b> Other research groups have already measured saliva from real oral-cancer patients and healthy volunteers, and published the raw values openly. We can download it free. (Same gene columns; different people — so this is a <i>screen</i>, not patient-matched proof.)</p>
+<table>
+  <tr><th>Sample</th><th>Status</th><th>GENE_A</th><th>GENE_B</th><th>GENE_C</th><th>GENE_D</th></tr>
+  <tr><td>S1–S4</td><td>OSCC saliva</td><td>7.8 · 8.4 · 7.1 · 6.9 (avg 7.6)</td><td>0.2 · 0.1 · 0.3 · 0.2 (avg 0.2)</td><td>4.5 · 4.2 · 4.7 · 4.1 (avg 4.4)</td><td>5.2 · 5.6 · 4.8 · 5.0 (avg 5.2)</td></tr>
+  <tr><td>S5–S8</td><td>Healthy saliva</td><td>1.5 · 1.2 · 1.8 · 1.4 (avg 1.5)</td><td>0.2 · 0.1 · 0.3 · 0.2 (avg 0.2)</td><td>4.4 · 4.0 · 4.6 · 4.2 (avg 4.3)</td><td>2.1 · 1.8 · 2.3 · 2.0 (avg 2.1)</td></tr>
+</table>
+
+<h2>2 · What has already been done — and the one thing all of it shares</h2>
+<ul>
+  <li><b>Li et al. 2004, <i>Clin Cancer Res</i></b> (Johns Hopkins) — measured RNA in the saliva of 32 oral-cancer patients + 32 controls; found 1,679 differently-expressed genes; validated a <b>7-mRNA panel (IL8, IL1B, DUSP1, OAZ1, S100P, SAT, HA3)</b> by qPCR — <b>91% sensitivity, 91% specificity</b>. Proof that tumor-relevant gene traces reach saliva and carry diagnostic signal. <span class="src">pubmed.ncbi.nlm.nih.gov/15623624</span></li>
+  <li><b>npj classifier 2021</b> — AI on the full salivary transcriptome. Proof that AI can read saliva; but a black box over thousands of targets on a small sample — not a deployable test. <span class="src">nature.com/articles/s41525-021-00257-x</span></li>
+  <li><b>Ciringione et al. 2025, <i>IJMS</i></b> — a <b>4-miRNA panel (miR-21/31/146a/424), AUC 0.959</b>, n = 60, qRT-PCR. Proof that a minimal panel suffices. The 4 miRNAs were chosen from the 60 saliva measurements themselves. <span class="src">mdpi.com/1422-0067/26/23/11373</span></li>
+</ul>
+<p><b>The shared pattern:</b> every one of these selected markers <b>from Table 2 alone</b> — the saliva measurements of a small, single-center cohort. None opened Table 1. None asked whether the chosen marker <i>contributes</i> to the tumor, or whether its level <i>tracks survival</i>. That is the gap this program fills.</p>
+
+<h2>3 · Our approach — every gene must survive three filters</h2>
+<p><b>Filter 1 — Contribution (Table 1).</b> Is the gene actually different in tumor vs normal tissue? A gene can be <i>present</i> in the tumor without <i>driving</i> it — most altered genes are bystanders.</p>
+<table>
+  <tr><th>Gene</th><th>Tumor avg</th><th>Normal avg</th><th>Fold-change</th><th>Verdict</th></tr>
+  <tr><td>GENE_A</td><td>9.5</td><td>1.1</td><td>7.5×</td><td class="pass">PASS</td></tr>
+  <tr><td>GENE_B</td><td>8.8</td><td>1.1</td><td>7.8×</td><td class="pass">PASS</td></tr>
+  <tr class="bad"><td>GENE_C</td><td>4.2</td><td>4.0</td><td>1.0×</td><td class="fail">FAIL — present in tumor (4.2) but equally present without cancer (4.0): a bystander</td></tr>
+  <tr><td>GENE_D</td><td>6.1</td><td>2.0</td><td>3.0×</td><td class="pass">PASS</td></tr>
+</table>
+<p><b>Filter 2 — Survival link (Table 1).</b> Among tumor patients, does the gene's level track how long they lived? GENE_A: the three early deaths averaged <b>9.4</b>; the 28-month survivor had <b>6.2</b> — higher level, shorter life. Importance is now <b>proven</b>, not assumed. (In the real run this is XAI/SHAP contribution + survival analysis, not eyeballing.) A, B, D pass.</p>
+<p><b>Filter 3 — Salivary detectability (Table 2 — free, laptop, 2–3 weeks).</b> Do the survivors reach saliva, and at measurable levels?</p>
+<table>
+  <tr><th>Gene</th><th>OSCC saliva vs healthy</th><th>Absolute level in OSCC saliva</th><th>Verdict</th></tr>
+  <tr><td>GENE_A</td><td>5.1×</td><td>7.5 — easily measurable</td><td class="pass">PASS</td></tr>
+  <tr class="bad"><td>GENE_B</td><td>1.0×</td><td>0.2 — essentially absent: it never leaves the tumor</td><td class="fail">FAIL — discovered at zero cost</td></tr>
+  <tr><td>GENE_D</td><td>2.5×</td><td>5.2 — measurable</td><td class="pass">PASS</td></tr>
+</table>
+
+<div class="callout"><p><b>Result: the panel is GENE_A + GENE_D.</b> Each member carries its full evidence chain — tumor contribution, survival link, salivary detectability. GENE_B is the instructive case: a tumor-side hero that dies at the saliva screen — the kind of dead end that, in the real program, is discovered <b>before any lab spend</b> (the month-3 GO/NO-GO gate). GENE_C shows why "present in the tumor" is not the test — "contributing" is.</p></div>
+
+<h2>4 · What the real run looks like</h2>
+<ol>
+  <li><b>Discovery (TCGA-HNSC, ~500 patients, public)</b> — elastic net + gradient boosting + SHAP stability over 40–60 candidates; survival analysis. → 10–15 survivors. Co-PI, weeks, ₹0.</li>
+  <li><b>Saliva screen (GEO public datasets, downloaded)</b> — measurability + differential expression, cross-cohort design. → 5–10. Co-PI, 2–3 weeks, ₹0. <b>GO/NO-GO gate at month 3.</b></li>
+  <li><b>Clinical validation (PI's lab)</b> — only after the gate: anonymized saliva, RNA extraction, qPCR on the 5–10 targets, blinded classification. Head-to-head vs the published 4-miRNA panel (AUC 0.959) and the 7-mRNA panel (91/91).</li>
+</ol>
+
+<h2>5 · Why this is novel</h2>
+<p>Nothing here denies the prior work — it <b>relies</b> on it. Saliva carrying tumor traces: proven since 2004. AI reading saliva: proven 2021. Minimal panels working: proven 2025. The unclaimed step is the <b>selection</b>: a panel that is survival-grounded (Table 1), XAI-explained, screened free on public saliva data before any spend, and validated clinically after a zero-cost gate. Every published panel is a <b>baseline to benchmark against</b> — none of them is the pipeline.</p>
+
+<h2>6 · Sources</h2>
+<ul>
+  <li>Li Y, et al. Salivary transcriptome diagnostics for oral cancer detection. <i>Clin Cancer Res</i> 2004;10(24):8442-50. <span class="src">pubmed.ncbi.nlm.nih.gov/15623624</span></li>
+  <li>Sun Y, et al. Computational methods for recognition of cancer protein markers in saliva. <i>Math Biosci Eng</i> 2020;17(3):2453-69. <span class="src">pubmed.ncbi.nlm.nih.gov/32233548</span> — ML prediction of which secreted proteins can appear in saliva (42 of 58 cancer markers; 33 genes predicted to reach saliva).</li>
+  <li>Ciringione A, et al. Identification of a novel salivary four-miRNA signature. <i>Int J Mol Sci</i> 2025;26(23):11373. <span class="src">mdpi.com/1422-0067/26/23/11373</span></li>
+  <li>Salivary metatranscriptome AI classifier. <i>npj Syst Biol Appl</i> 2021. <span class="src">nature.com/articles/s41525-021-00257-x</span></li>
+  <li>Patel A, et al. Saliva based liquid biopsies in head and neck cancer (tumor shedding into saliva). <i>Front Oncol</i> 2022;12:828434. <span class="src">frontiersin.org/journals/oncology/articles/10.3389/fonc.2022.828434/full</span></li>
+  <li>Program context: proposal OAI-2026 · novelty comparison one-pager · tissue→saliva bridge infographic.</li>
+</ul>
+
+<footer><p>Demo · numbers illustrative, sources real · prepared by Kamal Preet Singh for discussion with Dr. Shalini Kapoor · September 2026</p></footer>
+</div>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

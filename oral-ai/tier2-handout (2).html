@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tier 2 One-Pager — Salivary Gene Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FAFBFC;--ink:#10222E;--slate:#46586A;--teal:#0E7C86;--teal-soft:#E3F0F1;--signal:#D64550;--navy:#1D3A52;--line:#DCE4EA;
+--serif:"Fraunces",Georgia,serif;--sans:"IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans)}
+.page{width:1000px;height:1414px;padding:50px 54px;display:flex;flex-direction:column}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--teal)}
+h1{font-family:var(--serif);font-weight:500;font-size:40px;line-height:1.16;margin:12px 0 10px}
+h1 em{color:var(--teal);font-style:italic}
+.sub{color:var(--slate);font-size:15.5px;line-height:1.6;max-width:870px}
+.sub b{color:var(--ink)}
+.chips{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:4px 10px;border-radius:3px;background:var(--teal-soft);color:var(--teal);white-space:nowrap}
+.tag.red{background:#FDF6F6;color:var(--signal);border:1px solid var(--signal)}
+.band{margin-top:34px}
+.blab{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;color:var(--signal);display:flex;align-items:center;gap:14px}
+.blab::after{content:"";flex:1;height:1px;background:var(--line)}
+.blab.teal{color:var(--teal)}
+.gapgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px;margin-top:14px}
+.gcard{background:#fff;border:1px solid var(--line);border-top:3px solid var(--signal);border-radius:6px;padding:16px 17px}
+.gcard b{font-size:15px;display:block;margin-bottom:6px}
+.gcard p{font-size:13px;color:var(--slate);line-height:1.55}
+.bridge{display:grid;grid-template-columns:1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr;gap:0;align-items:stretch;margin-top:14px}
+.bstep{background:#fff;border:1px solid var(--line);border-radius:6px;padding:15px 12px;text-align:center}
+.bstep .btag{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--teal);display:block;margin-bottom:6px}
+.bstep b{display:block;font-size:13.5px;margin-bottom:3px;line-height:1.3}
+.bstep p{font-size:11.5px;color:var(--slate);line-height:1.45}
+.barrow{display:flex;align-items:center;justify-content:center;color:#B8C4CC;font-size:16px}
+.bstep.gate{border:1.5px solid var(--signal);background:#FDF6F6}
+.bstep.gate .btag{color:var(--signal)}
+.bstep.lab{border:1.5px solid var(--navy);background:#F4F7F9}
+.bstep.lab .btag{color:var(--navy)}
+.bnote{font-family:var(--mono);font-size:11px;color:var(--signal);margin-top:10px;text-align:center}
+.nov{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:14px}
+.nstep{background:#fff;border:1px solid var(--line);border-radius:6px;padding:16px 15px}
+.nnum{font-family:var(--mono);font-size:11px;color:var(--teal);letter-spacing:.12em}
+.nstep b{display:block;font-size:14.5px;margin:6px 0 4px}
+.nstep p{font-size:12.5px;color:var(--slate);line-height:1.5}
+.fund{margin-top:34px;background:var(--teal-soft);border-left:4px solid var(--teal);border-radius:0 6px 6px 0;padding:18px 22px}
+.fund p{font-size:14px;color:var(--ink);line-height:1.6}
+.fund b{color:var(--teal)}
+.foot{margin-top:auto;border-top:1px solid var(--line);padding-top:16px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.foot p{font-family:var(--mono);font-size:10.5px;color:#8FA3AF}
+.roles{display:flex;gap:8px}
+.rchip{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:3px;white-space:nowrap}
+.rpi{background:var(--navy);color:#fff}.rcopi{background:var(--teal);color:#fff}
+</style>
+</head>
+<body>
+<div class="page">
+  <p class="eyebrow">TIER 2 · TISSUE → SALIVA · ONE-PAGE SUMMARY</p>
+  <h1>An AI-minimal salivary gene panel for <em>oral cancer screening</em></h1>
+  <p class="sub">Discovered in tumor records (TCGA-HNSC) · screened in public saliva data (GEO) · validated in the PI's lab — <b>laboratory spend only after the month-3 gate</b>.</p>
+  <div class="chips">
+    <span class="tag">TCGA-HNSC · ~500 PATIENTS</span><span class="tag">GEO · PUBLIC</span><span class="tag">PHASE 3 = PI LAB</span><span class="tag red">GATE · MONTH 3</span>
+  </div>
+
+  <div class="band">
+    <div class="blab">RESEARCH GAP</div>
+    <div class="gapgrid">
+      <div class="gcard"><b>Black box</b><p>npj 2021: full transcriptome, thousands of targets — undeployable.</p></div>
+      <div class="gcard"><b>Not grounded</b><p>Ciringione 2025: AUC 0.959 — but n = 60, no tumor evidence behind the choice.</p></div>
+      <div class="gcard"><b>New bar</b><p>Wang 2025: cross-cohort validation is now the field standard.</p></div>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="blab teal">THE PIPELINE</div>
+    <div class="bridge">
+      <div class="bstep"><span class="btag">INPUT · PUBLIC</span><b>TCGA tumor tissue</b><p>20,000+ genes · survival-linked</p></div>
+      <div class="barrow">→</div>
+      <div class="bstep"><span class="btag">XAI SELECTION</span><b>Elastic net + SHAP</b><p>stability-selected</p></div>
+      <div class="barrow">→</div>
+      <div class="bstep"><span class="btag">OUTPUT</span><b>Minimal panel · 5–10</b><p>interpretable</p></div>
+      <div class="barrow">→</div>
+      <div class="bstep gate"><span class="btag">GATE ◆ · 3 WEEKS · ₹0</span><b>Saliva screen</b><p>public GEO data</p></div>
+      <div class="barrow">→</div>
+      <div class="bstep lab"><span class="btag">PHASE 3 · PI LAB</span><b>qPCR validation</b><p>only after GO</p></div>
+    </div>
+    <p class="bnote">WORST CASE KNOWN BY MONTH 3 — BEFORE ANY SPEND</p>
+  </div>
+
+  <div class="band">
+    <div class="blab teal">WHERE THE NOVELTY COMES FROM</div>
+    <div class="nov">
+      <div class="nstep"><span class="nnum">01</span><b>Tissue-grounded</b><p>Every candidate survival-linked.</p></div>
+      <div class="nstep"><span class="nnum">02</span><b>Minimal</b><p>5–10 targets, not 20,000.</p></div>
+      <div class="nstep"><span class="nnum">03</span><b>Screened first</b><p>Saliva viability proven free.</p></div>
+      <div class="nstep"><span class="nnum">04</span><b>Benchmarked</b><p>Vs the published 4-miRNA panel.</p></div>
+    </div>
+  </div>
+
+  <div class="fund">
+    <p><b>The gate.</b> GO → small panels = cheap assays, the translational-funding sweet spot. NO-GO → the approach retires, the program stands; the de-risking result is publishable. <b>PI:</b> ethics, samples, qPCR. <b>Co-PI:</b> discovery, screens, models.</p>
+  </div>
+
+  <div class="foot">
+    <p>OAI-2026 · TIER 2 · SEPTEMBER 2026</p>
+    <div class="roles"><span class="rchip rpi">PI — DR. KAPOOR</span><span class="rchip rcopi">CO-PI — KAMAL PREET SINGH</span></div>
+    <p>BASELINES, NOT COMPETITORS</p>
+  </div>
+</div>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
