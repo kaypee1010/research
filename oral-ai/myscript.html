@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>script.html — Presenter Script for OAI-2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FAFBFC;--ink:#10222E;--slate:#46586A;--teal:#0E7C86;--teal-soft:#E3F0F1;--signal:#D64550;--navy:#1D3A52;--line:#DCE4EA;--card:#fff;
+--soft:#F4F7F9;--serif:"Fraunces",Georgia,serif;--sans:"IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.72}
+.doc{max-width:860px;margin:0 auto;padding:0 28px}
+header{margin-top:48px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--teal);text-transform:uppercase}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(28px,4vw,38px);line-height:1.2;margin:12px 0 8px}
+.meta{font-family:var(--mono);font-size:12px;color:var(--slate);margin-bottom:30px}
+h2{font-family:var(--serif);font-weight:500;font-size:21px;margin:38px 0 8px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.tbadge{font-family:var(--mono);font-size:11px;color:#fff;background:var(--navy);border-radius:3px;padding:3px 8px;white-space:nowrap}
+.qa .tbadge{background:var(--signal)}
+.logi .tbadge{background:var(--teal)}
+.open{display:inline-block;font-family:var(--mono);font-size:11.5px;background:var(--teal-soft);color:var(--teal);border-radius:4px;padding:4px 12px;margin:6px 8px 4px 0;text-decoration:none}
+.cue{font-family:var(--mono);font-size:12.5px;color:var(--signal);display:block;margin:14px 0 4px}
+.speech{border-left:3px solid var(--teal);padding:4px 0 4px 18px;margin:10px 0 8px;color:var(--slate)}
+.speech b{color:var(--ink)}
+.tip{background:var(--teal-soft);border-radius:6px;padding:12px 18px;font-size:14px;margin:12px 0;color:var(--ink)}
+.tip b{color:var(--teal)}
+.warn{background:#FDF6F6;border:1px dashed var(--signal);border-radius:6px;padding:12px 18px;font-size:14px;margin:12px 0;color:var(--ink)}
+.warn b{color:var(--signal)}
+.block{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:12px 0}
+.block b{color:var(--ink)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--slate);text-align:left;padding:10px 12px;border-bottom:2px solid var(--ink)}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--slate)}
+td:first-child{color:var(--ink);font-weight:500;width:28%}
+ul{margin:10px 0 10px 22px;color:var(--slate)}
+li{margin:6px 0}
+footer{margin:48px 0 60px;border-top:1px solid var(--line);padding-top:16px}
+footer p{font-family:var(--mono);font-size:11.5px;color:#8FA3AF}
+@media(max-width:640px){.doc{padding:0 18px}td:first-child{width:auto}table,tbody,tr,td,th{display:block}th{display:none}td{padding:10px 0}td:first-child{border-bottom:none;padding-bottom:4px}td:last-child{padding-top:0}}
+</style>
+</head>
+<body>
+<div class="doc">
+<header>
+  <p class="eyebrow">Private presenter script</p>
+  <h1>AI-Driven Oral Health — meeting script for the two-tier research program</h1>
+  <p class="meta">For presenting to Dr. Shalini Kapoor · Kit link flow: <b>index.html</b> → <b>tier1-handout.html</b> → <b>tier2-handout.html</b> → optional demo pages · Speaker: Kamal Preet Singh · Private notes, not part of the handout set</p>
+</header>
+
+<h2><span class="tbadge">0:00 · 30s</span> Opening</h2>
+<span class="cue">[Start with the context, not the technology.]</span>
+<p class="speech">“Ma’am, after the Strategic Research Leadership Meeting and its emphasis on connecting ideas and building collaborations, I worked up one focused program rather than two disconnected proposals. It has <b>two linked projects</b>: first, using routine dental-exam data to flag undiagnosed diabetes and cardiovascular risk; second, building a minimal salivary gene panel for oral cancer screening, with public-data screening first and lab validation only after that. The whole program is organised in one simple kit, and I’d like to take you through it in about four to five minutes.”</p>
+<a class="open" href="index.html">OPEN → index.html</a>
+
+<h2><span class="tbadge">0:30 · 20s</span> Frame the program</h2>
+<span class="cue">[Stay on the proposal landing page.]</span>
+<p class="speech">“The reason I grouped them together is that they share the same research spine: validation on real data, calibration, fairness checks, and interpretable outputs. Tier 1 is the faster public-data paper. Tier 2 is the translational project that becomes stronger because it is gated properly before any lab spend.”</p>
+
+<h2><span class="tbadge">0:50 · 30s</span> The gap</h2>
+<span class="cue">[Point to the four gap cards.]</span>
+<p class="speech">“The field already has many dental-AI papers, but recent reviews keep pointing to the same four weaknesses: models are often not calibrated, external or temporal validation is missing, fairness is rarely reported, and very little reaches actual clinical translation. This program is designed against those exact gaps, not just against one isolated paper.”</p>
+
+<h2><span class="tbadge">1:20 · 45s</span> Tier 1 — oral to systemic</h2>
+<span class="cue">[Open the Tier 1 one-pager and use the ‘flip’ visual.]</span>
+<a class="open" href="tier1-handout.html">OPEN → tier1-handout.html</a>
+<p class="speech">“The first project is the simpler and faster one. Existing work has already shown that systemic disease and oral findings are related, but the usual direction has been to predict gum disease <b>from</b> systemic factors. My move is to <b>flip that arrow</b>: use routine dental-exam variables to flag people who may have undiagnosed diabetes or elevated cardiovascular risk. The output is not a diagnosis. It is a triage signal — essentially, ‘this person should get a blood test.’ That makes the project clinically cautious, but still useful.”</p>
+<p class="speech">“It also starts cleanly because the data are already public. NHANES gives dental-exam variables and blood markers in the same participant records. So Tier 1 can move without new recruitment, without ethics delays, and without assay cost.”</p>
+
+<h2><span class="tbadge">2:05 · 45s</span> Tier 2 — tissue to saliva</h2>
+<span class="cue">[Open Tier 2 one-pager; if she wants more mechanism, open the bridge page.]</span>
+<a class="open" href="tier2-handout.html">OPEN → tier2-handout.html</a>
+<a class="open" href="tissue-saliva-bridge-infographic.html">DEEP DIVE → tissue-saliva-bridge-infographic.html</a>
+<p class="speech">“The second project is the translational one, and it is the one most closely aligned with your biomarker and lab strengths. The idea is to begin from tumor tissue data, not from saliva alone, and let the model narrow the search to a <b>minimal, survival-linked, biologically defensible panel</b>. After that, the candidates are screened against public saliva datasets. Only if that gate is positive do we move to qPCR validation in your lab.”</p>
+<p class="speech">“That sequencing matters. Saliva-based cancer markers are already a real line of work, and minimal panels are already published. But the field still tends to choose markers from saliva cohorts directly. What is missing is a panel that earns its place through tumor evidence first, saliva detectability second, and clinical validation third.”</p>
+
+<h2><span class="tbadge">2:50 · 30s</span> The gate and why it matters</h2>
+<span class="cue">[Still on Tier 2.]</span>
+<p class="speech">“The month-three gate is one of the strongest features of the proposal. If the tumor-side candidates do not survive the saliva screen, we find that out early and at effectively zero lab cost. So even the negative outcome is useful — it prevents us from spending time and money on a weak translational path. In other words, Tier 2 is ambitious, but it is not reckless.”</p>
+
+<h2><span class="tbadge">3:20 · 35s</span> The demo</h2>
+<span class="cue">[Open the demo poster first. Use the full demo only if she asks for detail.]</span>
+<a class="open" href="demo-explainer-handout.html">OPEN → demo-explainer-handout.html</a>
+<a class="open" href="panel-selection-demo.html">FULL DEMO → panel-selection-demo.html</a>
+<p class="speech">“I also included a small worked demo so the method does not remain abstract. The numbers are illustrative, but the logic is real: first, ask whether the gene contributes in tumor tissue; second, whether it tracks outcome; third, whether it is actually measurable in saliva. If it fails any one of those tests, it drops out. That makes the selection process transparent rather than decorative.”</p>
+
+<h2><span class="tbadge">3:55 · 35s</span> Roles and timeline</h2>
+<span class="cue">[Return to the proposal and open the timeline or roles overlay if needed.]</span>
+<p class="speech">“The structure is intentionally practical. Tier 1 is the early publication track. Tier 2 is the gated translational track. I would take responsibility for the computational side — data pipelines, modelling, validation, interpretability, manuscript drafting. I would want your leadership on clinical framing, ethics, sample pathway, and qPCR validation. That division is already built into the plan.”</p>
+
+<h2><span class="tbadge">4:30 · 20s</span> The ask</h2>
+<p class="speech">“My ask is simple: if the direction makes sense to you, I would like to shape this as a joint program under your leadership as PI, with me taking the computational workstream as Co-PI. Tier 1 can begin immediately on public data. Tier 2 would move only with your guidance and only through the gate structure already laid out.”</p>
+
+<h2><span class="tbadge">4:50 · 15s</span> Close</h2>
+<p class="speech">“That is the full idea. Everything is already organised in the kit, so you can review it page by page later as well. If useful, I can also turn this directly into a seed-grant note or a cleaner internal concept paper after your feedback.”</p>
+
+<h2><span class="tbadge">USE THESE</span> Two questions to invite her input</h2>
+<div class="block"><b>After Tier 1:</b> “From a clinical point of view, where would you want the referral threshold to sit for a tool like this — conservative enough to avoid over-referral, or broader so that fewer cases are missed?”</div>
+<div class="block"><b>After Tier 2:</b> “If we reach a 5–10 target panel, what do you think is the most likely point of failure in practice — sample handling, biological variability, or assay reproducibility?”</div>
+<div class="tip"><b>Why these work:</b> they invite expert judgment, not generic approval. That makes the conversation collaborative rather than performative.</div>
+
+<h2 class="qa"><span class="tbadge">Q&amp;A PREP</span> Suggested answers if she pushes back</h2>
+<table>
+  <tr><th>Question</th><th>Short answer</th></tr>
+  <tr><td>“Why combine the two projects?”</td><td>Because they share one methodological spine, but they differ in risk. Tier 1 gives an earlier paper with public data; Tier 2 gives the translational upside. Together they make a stronger program than either alone.</td></tr>
+  <tr><td>“Why not start only with Tier 1?”</td><td>That is a perfectly reasonable sequencing plan, and the program already allows it. Tier 1 can be the active project, while Tier 2 remains a phase-gated second track until you are satisfied with the direction.</td></tr>
+  <tr><td>“What is actually new in Tier 1?”</td><td>The novelty is not only the flipped arrow. It is also the rigor package: temporal validation, calibration, fairness reporting, and a clinically interpretable chairside score.</td></tr>
+  <tr><td>“What is actually new in Tier 2?”</td><td>Not the claim that saliva contains signal — that is already known. The novelty is the selection pathway: tumor-grounded, survival-linked, screened in public saliva data before any lab spend, then clinically validated.</td></tr>
+  <tr><td>“What if Tier 2 fails at the gate?”</td><td>Then the saliva-panel path stops cleanly, early, and cheaply. Tier 1 continues unaffected, and the negative finding still has scientific value because it de-risks the translational claim.</td></tr>
+  <tr><td>“What do you need from my lab?”</td><td>Only for Tier 2 phase 3: anonymized saliva samples, RNA extraction/qPCR support, ethics leadership, and clinical interpretation. The public-data and modelling work stays on my side.</td></tr>
+  <tr><td>“Why should this be a Co-PI role?”</td><td>Because I would be owning an entire research workstream — not contributing a one-off analysis. The data, modelling, validation, and manuscript pipeline would sit with me end to end.</td></tr>
+</table>
+
+<h2 class="logi"><span class="tbadge">CHECKLIST</span> Before the meeting</h2>
+<ul>
+  <li>Open `index.html`, `tier1-handout.html`, `tier2-handout.html`, and `demo-explainer-handout.html` in separate tabs before the meeting starts.</li>
+  <li>Keep `tissue-saliva-bridge-infographic.html` and `panel-selection-demo.html` ready only for follow-up questions.</li>
+  <li>Do not over-explain citations unless she asks. Use the visuals first.</li>
+  <li>Lead with the program logic, then the division of roles, then the ask.</li>
+  <li>If a biomedical detail goes beyond your confidence, say plainly that this is exactly why you want her clinical judgment in the loop.</li>
+</ul>
+
+<div class="warn"><b>Do not say:</b> “Is this a good idea?” or “Please tell me if this is okay.” Ask for specific clinical judgment instead. The goal is to present a serious, prepared program and invite expert shaping, not to sound uncertain.</div>
+
+<footer><p>script.html · Presenter notes for OAI-2026 · Kamal Preet Singh · September 2026</p></footer>
+</div>
+</body>
+</html>
